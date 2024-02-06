@@ -33,7 +33,7 @@ var container = dv. ActionButtons();
 var group = container.addGroup("Links"); 
 
 // add some links
-group.addLink("Quick Pay", "quickpay.php", Variation. Warning, "credit-card"); 
+group.addLink("Print Invoice", "bidder_invoice.php?BidderID=1", Variation. Warning, "print"); 
 group.addLink("Settings", "patients_view.php", null, "cog"); 
 
 // add two buttons for toggling the compact-mode with no text but icons "minus"/"plus"
