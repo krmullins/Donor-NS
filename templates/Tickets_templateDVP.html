@@ -1,0 +1,78 @@
+<!-- Edit this file to change the layout of the detail view print preview page -->
+
+
+<div class="panel-heading"><h3 class="panel-title">
+	<strong><%%DETAIL_VIEW_TITLE%%></strong>
+	<div class="hidden-print pull-right">
+		<div class="btn-group">
+			<button type="button" id="print" onclick="window.print();" title="<%%TRANSLATION(Print)%%>" class="btn btn-primary"><i class="glyphicon glyphicon-print"></i> <%%TRANSLATION(Print)%%></button>
+			<button type="submit" id="back" title="<%%TRANSLATION(Cancel Printing)%%>" class="btn btn-default"><i class="glyphicon glyphicon-remove-circle"></i> <%%TRANSLATION(Cancel Printing)%%></button>
+		</div>
+	</div>
+	<div class="clearfix"></div>
+</h3></div>
+
+<div class="panel-body">
+	<fieldset class="form-horizontal">
+		<!-- Field: ID -->
+		<div class="form-group Tickets-ID" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">ID</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(ID)%%></div>
+			</div>
+		</div>
+		<!-- Field: Guest Name -->
+		<div class="form-group Tickets-UsersName" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Guest Name</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(UsersName)%%></div>
+			</div>
+		</div>
+		<!-- Field: Bidder Number -->
+		<div class="form-group Tickets-BidderID" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Bidder Number</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><span id="BidderID<%%RND1%%>"><%%COMBOTEXT(BidderID)%%></span></div>
+			</div>
+		</div>
+		<!-- Field: Table Preference -->
+		<div class="form-group Tickets-TablePreference" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Table Preference</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><span id="TablePreference<%%RND1%%>"></span></div>
+			</div>
+		</div>
+		<!-- Field: Table -->
+		<div class="form-group Tickets-TableID" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Table</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><span id="TableID<%%RND1%%>"><%%COMBOTEXT(TableID)%%></span></div>
+			</div>
+		</div>
+		<!-- Field: Table Name -->
+		<div class="form-group Tickets-TableName" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Table Name</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><span id="TableName<%%RND1%%>"></span></div>
+			</div>
+		</div>
+		<!-- Field: Seating Position -->
+		<div class="form-group Tickets-SeatingPosition" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Seating Position</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%COMBOTEXT(SeatingPosition)%%></div>
+			</div>
+		</div>
+	</fieldset>
+</div>
+<script>
+	$j(function() {
+		// render read-only checkboxes in DVP
+		$j('form input[type=checkbox]:not(.hidden):checked')
+			.addClass('hidden')
+			.after('<i class="glyphicon glyphicon-check"></i>');
+		$j('form input[type=checkbox]:not(.hidden):not(:checked)')
+			.addClass('hidden')
+			.after('<i class="glyphicon glyphicon-unchecked"></i>')
+	})
+</script>

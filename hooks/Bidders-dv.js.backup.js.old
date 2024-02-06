@@ -1,0 +1,18 @@
+
+
+// file: hooks/Bidders-dv.js
+
+var dv = AppGiniHelper.DV;
+
+var layout = dv.createLayout([6, 6]);
+
+var name = dv.getField("MailingName");
+
+dv.setTitle('Details');
+
+
+AppGiniHelper.dv.createLayout([6, 6])
+
+    .add(1, ["ID", "ContactID", "Card", "TotalOwed", "CheckedIn", "QuickPay"])
+
+    .add(2, ["BidNo", "BidderType","TablePreference"]);

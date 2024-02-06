@@ -1,0 +1,25 @@
+<!-- Edit this file to change the layout of each record in the table view -->
+<!-- To disable clicking of a field, remove the <%%SELECT%%> and <%%ENDSELECT%%> formatters around it-->
+
+<!-- If you wish to hide the table view header that contains the column titles, -->
+<!-- add the following to the Catalog_init() hook (in hooks/Catalog.php file) -->
+<!--     $options->ShowTableHeader = 0;     -->
+
+		<td id="Catalog-CatalogNo-<%%VALUE(ID)%%>" class="Catalog-CatalogNo"><%%SELECT%%><%%VALUE(CatalogNo)%%><%%ENDSELECT%%></td>
+		<td id="Catalog-CatalogTitle-<%%VALUE(ID)%%>" class="Catalog-CatalogTitle"><%%SELECT%%><%%VALUE(CatalogTitle)%%><%%ENDSELECT%%></td>
+		<td id="Catalog-Description-<%%VALUE(ID)%%>" class="Catalog-Description"><%%VALUE(Description)%%></td>
+		<td id="Catalog-Restrictions-<%%VALUE(ID)%%>" class="Catalog-Restrictions"><%%VALUE(Restrictions)%%></td>
+		<td id="Catalog-TypeID-<%%VALUE(ID)%%>" class="Catalog-TypeID text-right"><%%VALUE(TypeID)%%></td>
+		<td id="Catalog-GroupID-<%%VALUE(ID)%%>" class="Catalog-GroupID text-right"><%%VALUE(GroupID)%%></td>
+		<td id="Catalog-DonorText-<%%VALUE(ID)%%>" class="Catalog-DonorText"><%%SELECT%%><%%VALUE(DonorText)%%><%%ENDSELECT%%></td>
+		<td id="Catalog-AdditionalInfo-<%%VALUE(ID)%%>" class="Catalog-AdditionalInfo"><%%SELECT%%><%%VALUE(AdditionalInfo)%%><%%ENDSELECT%%></td>
+		<td id="Catalog-CatalogValueText-<%%VALUE(ID)%%>" class="Catalog-CatalogValueText"><%%VALUE(CatalogValueText)%%></td>
+		<td id="Catalog-Quantity-<%%VALUE(ID)%%>" class="Catalog-Quantity"><%%SELECT%%><%%VALUE(Quantity)%%><%%ENDSELECT%%></td>
+		<td class="child-Donations-CatalogID child-records-info" data-id="<%%VALUE(ID)%%>" data-table="Donations" data-lookup-field="CatalogID">
+			<a href="Donations_view.php?filterer_CatalogID=<%%VALUE(ID)%%>" target="_blank" title="<%%TRANSLATION(view)%%>" class="children-count" style="visibility: hidden;"><span class="count-children">0</span> <i class="glyphicon glyphicon-new-window"></i></a>
+			<a href="Donations_view.php?filterer_CatalogID=<%%VALUE(ID)%%>&addNew_x=1&Embedded=1" target="_blank" class="modal-link new-child" title="<%%TRANSLATION(Add New)%%> (Donations)" style="visibility: hidden;"><i class="text-success glyphicon glyphicon-plus"></i></a>
+		</td>
+		<td class="child-Transactions-CatalogID child-records-info" data-id="<%%VALUE(ID)%%>" data-table="Transactions" data-lookup-field="CatalogID">
+			<a href="Transactions_view.php?filterer_CatalogID=<%%VALUE(ID)%%>" target="_blank" title="<%%TRANSLATION(view)%%>" class="children-count" style="visibility: hidden;"><span class="count-children">0</span> <i class="glyphicon glyphicon-new-window"></i></a>
+			<a href="Transactions_view.php?filterer_CatalogID=<%%VALUE(ID)%%>&addNew_x=1&Embedded=1" target="_blank" class="modal-link new-child" title="<%%TRANSLATION(Add New)%%> (Transactions)" style="visibility: hidden;"><i class="text-success glyphicon glyphicon-plus"></i></a>
+		</td>

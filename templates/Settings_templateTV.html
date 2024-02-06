@@ -1,0 +1,15 @@
+<!-- Edit this file to change the layout of each record in the table view -->
+<!-- To disable clicking of a field, remove the <%%SELECT%%> and <%%ENDSELECT%%> formatters around it-->
+
+<!-- If you wish to hide the table view header that contains the column titles, -->
+<!-- add the following to the Settings_init() hook (in hooks/Settings.php file) -->
+<!--     $options->ShowTableHeader = 0;     -->
+
+		<td id="Settings-EventName-<%%VALUE(ID)%%>" class="Settings-EventName"><%%SELECT%%><%%VALUE(EventName)%%><%%ENDSELECT%%></td>
+		<td id="Settings-EventDate-<%%VALUE(ID)%%>" class="Settings-EventDate"><%%SELECT%%><%%VALUE(EventDate)%%><%%ENDSELECT%%></td>
+		<td id="Settings-AnonymousName-<%%VALUE(ID)%%>" class="Settings-AnonymousName"><%%SELECT%%><%%VALUE(AnonymousName)%%><%%ENDSELECT%%></td>
+		<td id="Settings-Address-<%%VALUE(ID)%%>" class="Settings-Address"><%%SELECT%%><%%VALUE(Address)%%><%%ENDSELECT%%></td>
+		<td id="Settings-RegTicketPrice-<%%VALUE(ID)%%>" class="Settings-RegTicketPrice"><%%SELECT%%><%%VALUE(RegTicketPrice)%%><%%ENDSELECT%%></td>
+		<td id="Settings-DiscTicketPrice-<%%VALUE(ID)%%>" class="Settings-DiscTicketPrice"><%%SELECT%%><%%VALUE(DiscTicketPrice)%%><%%ENDSELECT%%></td>
+		<td id="Settings-DinnerCost-<%%VALUE(ID)%%>" class="Settings-DinnerCost"><%%SELECT%%><%%VALUE(DinnerCost)%%><%%ENDSELECT%%></td>
+		<td id="Settings-Logo-<%%VALUE(ID)%%>" class="Settings-Logo"><%%SELECT%%><img src="thumbnail.php?i=<%%VALUE(Logo)%%>&t=Settings&f=Logo&v=tv" class="img-thumbnail"><%%ENDSELECT%%></td>

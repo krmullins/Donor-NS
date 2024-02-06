@@ -1,0 +1,135 @@
+<!-- Edit this file to change the layout of the detail view print preview page -->
+
+
+<div class="panel-heading"><h3 class="panel-title">
+	<strong><%%DETAIL_VIEW_TITLE%%></strong>
+	<div class="hidden-print pull-right">
+		<div class="btn-group">
+			<button type="button" id="print" onclick="window.print();" title="<%%TRANSLATION(Print)%%>" class="btn btn-primary"><i class="glyphicon glyphicon-print"></i> <%%TRANSLATION(Print)%%></button>
+			<button type="submit" id="back" title="<%%TRANSLATION(Cancel Printing)%%>" class="btn btn-default"><i class="glyphicon glyphicon-remove-circle"></i> <%%TRANSLATION(Cancel Printing)%%></button>
+		</div>
+	</div>
+	<div class="clearfix"></div>
+</h3></div>
+
+<div class="panel-body">
+	<fieldset class="form-horizontal">
+		<!-- Field: ID -->
+		<div class="form-group Catalog-ID" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">ID</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(ID)%%></div>
+			</div>
+		</div>
+		<!-- Field: Catalog No -->
+		<div class="form-group Catalog-CatalogNo" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Catalog No</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(CatalogNo)%%></div>
+			</div>
+		</div>
+		<!-- Field: Catalog Title -->
+		<div class="form-group Catalog-CatalogTitle" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Catalog Title</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(CatalogTitle)%%></div>
+			</div>
+		</div>
+		<!-- Field: Description -->
+		<div class="form-group Catalog-Description" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Description</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(Description)%%></div>
+			</div>
+		</div>
+		<!-- Field: Restrictions -->
+		<div class="form-group Catalog-Restrictions" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Restrictions</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(Restrictions)%%></div>
+			</div>
+		</div>
+		<!-- Field: Catalog Type -->
+		<div class="form-group Catalog-TypeID" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Catalog Type</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><span id="TypeID<%%RND1%%>"><%%COMBOTEXT(TypeID)%%></span></div>
+			</div>
+		</div>
+		<!-- Field: Grouping -->
+		<div class="form-group Catalog-GroupID" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Grouping</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><span id="GroupID<%%RND1%%>"><%%COMBOTEXT(GroupID)%%></span></div>
+			</div>
+		</div>
+		<!-- Field: Donor Text -->
+		<div class="form-group Catalog-DonorText" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Donor Text</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(DonorText)%%></div>
+			</div>
+		</div>
+		<!-- Field: Additional Info -->
+		<div class="form-group Catalog-AdditionalInfo" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Additional Info</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%COMBOTEXT(AdditionalInfo)%%></div>
+			</div>
+		</div>
+		<!-- Field: Catalog Value Text -->
+		<div class="form-group Catalog-CatalogValueText" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Catalog Value Text</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(CatalogValueText)%%></div>
+			</div>
+		</div>
+		<!-- Field: Quantity -->
+		<div class="form-group Catalog-Quantity" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Quantity</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(Quantity)%%></div>
+			</div>
+		</div>
+	</fieldset>
+</div>
+<script>
+	$j(function() {
+		// render read-only checkboxes in DVP
+		$j('form input[type=checkbox]:not(.hidden):checked')
+			.addClass('hidden')
+			.after('<i class="glyphicon glyphicon-check"></i>');
+		$j('form input[type=checkbox]:not(.hidden):not(:checked)')
+			.addClass('hidden')
+			.after('<i class="glyphicon glyphicon-unchecked"></i>')
+	})
+</script>
+<!-- child records -->
+<div class="panel-body">
+	<div id="Catalog-children"></div>
+</div>
+
+<script>
+	$j(function() {
+		/* prevent loading child records in multiple DVP */
+		if($j('[id=Catalog-children]').length > 1) return;
+
+		post(
+			'parent-children.php', {
+				ParentTable: 'Catalog',
+				SelectedID: '<%%VALUE(ID)%%>',
+				Operation: 'show-children-printable'
+			},
+			'Catalog-children',
+			'disable-element',
+			'loading-element',
+			apply_persisting_children
+		);
+
+		$j('form').on('click', '#children-tabs button[data-target]', function() {
+			$j(this).toggleClass('active');
+			persist_expanded_child($j(this).attr('id'));
+		});
+	})
+</script>
+

@@ -1,0 +1,134 @@
+<!-- Edit this file to change the layout of the detail view print preview page -->
+
+
+<div class="panel-heading"><h3 class="panel-title">
+	<strong><%%DETAIL_VIEW_TITLE%%></strong>
+	<div class="hidden-print pull-right">
+		<div class="btn-group">
+			<button type="button" id="print" onclick="window.print();" title="<%%TRANSLATION(Print)%%>" class="btn btn-primary"><i class="glyphicon glyphicon-print"></i> <%%TRANSLATION(Print)%%></button>
+			<button type="submit" id="back" title="<%%TRANSLATION(Cancel Printing)%%>" class="btn btn-default"><i class="glyphicon glyphicon-remove-circle"></i> <%%TRANSLATION(Cancel Printing)%%></button>
+		</div>
+	</div>
+	<div class="clearfix"></div>
+</h3></div>
+
+<div class="panel-body">
+	<fieldset class="form-horizontal">
+		<!-- Field: ID -->
+		<div class="form-group Donations-ID" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">ID</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(ID)%%></div>
+			</div>
+		</div>
+		<!-- Field: Donation Name -->
+		<div class="form-group Donations-DonationName" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Donation Name</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(DonationName)%%></div>
+			</div>
+		</div>
+		<!-- Field: Description -->
+		<div class="form-group Donations-Description" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Description</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(Description)%%></div>
+			</div>
+		</div>
+		<!-- Field: Restrictions -->
+		<div class="form-group Donations-Restrictions" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Restrictions</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(Restrictions)%%></div>
+			</div>
+		</div>
+		<!-- Field: Value -->
+		<div class="form-group Donations-Value" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Value</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(Value)%%></div>
+			</div>
+		</div>
+		<!-- Field: Catalog Number -->
+		<div class="form-group Donations-CatalogID" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Catalog Number</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><span id="CatalogID<%%RND1%%>"><%%COMBOTEXT(CatalogID)%%></span></div>
+			</div>
+		</div>
+		<!-- Field: Donor Name Lookup -->
+		<div class="form-group Donations-ContactID" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Donor Name Lookup</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><span id="ContactID<%%RND1%%>"><%%COMBOTEXT(ContactID)%%></span></div>
+			</div>
+		</div>
+		<!-- Field: Contact Person -->
+		<div class="form-group Donations-ContactPerson" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Contact Person</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(ContactPerson)%%></div>
+			</div>
+		</div>
+		<!-- Field: Contact Phone -->
+		<div class="form-group Donations-ContactPhone" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Contact Phone</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(ContactPhone)%%></div>
+			</div>
+		</div>
+		<!-- Field: Item Status -->
+		<div class="form-group Donations-ItemStatus" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Item Status</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%COMBOTEXT(ItemStatus)%%></div>
+			</div>
+		</div>
+		<!-- Field: Procured By -->
+		<div class="form-group Donations-ProcuredBy" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Procured By</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(ProcuredBy)%%></div>
+			</div>
+		</div>
+		<!-- Field: Date Procured -->
+		<div class="form-group Donations-DateProcured" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Date Procured</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%COMBOTEXT(DateProcured)%%></div>
+			</div>
+		</div>
+		<!-- Field: Additional Info -->
+		<div class="form-group Donations-AdditionalInfo" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Additional Info</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%COMBOTEXT(AdditionalInfo)%%></div>
+			</div>
+		</div>
+		<!-- Field: Thanks -->
+		<div class="form-group Donations-Thanks" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Thanks</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%COMBOTEXT(Thanks)%%></div>
+			</div>
+		</div>
+		<!-- Field: Notes -->
+		<div class="form-group Donations-Notes" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Notes</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(Notes)%%></div>
+			</div>
+		</div>
+	</fieldset>
+</div>
+<script>
+	$j(function() {
+		// render read-only checkboxes in DVP
+		$j('form input[type=checkbox]:not(.hidden):checked')
+			.addClass('hidden')
+			.after('<i class="glyphicon glyphicon-check"></i>');
+		$j('form input[type=checkbox]:not(.hidden):not(:checked)')
+			.addClass('hidden')
+			.after('<i class="glyphicon glyphicon-unchecked"></i>')
+	})
+</script>

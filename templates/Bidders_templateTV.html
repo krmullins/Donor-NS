@@ -1,0 +1,28 @@
+<!-- Edit this file to change the layout of each record in the table view -->
+<!-- To disable clicking of a field, remove the <%%SELECT%%> and <%%ENDSELECT%%> formatters around it-->
+
+<!-- If you wish to hide the table view header that contains the column titles, -->
+<!-- add the following to the Bidders_init() hook (in hooks/Bidders.php file) -->
+<!--     $options->ShowTableHeader = 0;     -->
+
+		<td id="Bidders-ContactID-<%%VALUE(ID)%%>" class="Bidders-ContactID"><%%SELECT%%><%%VALUE(ContactID)%%><%%ENDSELECT%%></td>
+		<td id="Bidders-BidNo-<%%VALUE(ID)%%>" class="Bidders-BidNo"><%%SELECT%%><%%VALUE(BidNo)%%><%%ENDSELECT%%></td>
+		<td id="Bidders-BidderType-<%%VALUE(ID)%%>" class="Bidders-BidderType"><%%SELECT%%><%%VALUE(BidderType)%%><%%ENDSELECT%%></td>
+		<td id="Bidders-CheckedIn-<%%VALUE(ID)%%>" class="Bidders-CheckedIn"><%%SELECT%%><%%VALUE(CheckedIn)%%><%%ENDSELECT%%></td>
+		<td id="Bidders-QuickPay-<%%VALUE(ID)%%>" class="Bidders-QuickPay"><%%SELECT%%><%%VALUE(QuickPay)%%><%%ENDSELECT%%></td>
+		<td id="Bidders-TotalOwed-<%%VALUE(ID)%%>" class="Bidders-TotalOwed text-right"><%%SELECT%%><%%VALUE(TotalOwed)%%><%%ENDSELECT%%></td>
+		<td id="Bidders-TablePreference-<%%VALUE(ID)%%>" class="Bidders-TablePreference"><%%SELECT%%><%%VALUE(TablePreference)%%><%%ENDSELECT%%></td>
+		<td id="Bidders-Card-<%%VALUE(ID)%%>" class="Bidders-Card"><%%SELECT%%><%%VALUE(Card)%%><%%ENDSELECT%%></td>
+		<td id="Bidders-TotalPaid-<%%VALUE(ID)%%>" class="Bidders-TotalPaid text-right"><%%SELECT%%><%%VALUE(TotalPaid)%%><%%ENDSELECT%%></td>
+		<td class="child-Transactions-BidderID child-records-info" data-id="<%%VALUE(ID)%%>" data-table="Transactions" data-lookup-field="BidderID">
+			<a href="Transactions_view.php?filterer_BidderID=<%%VALUE(ID)%%>" target="_blank" title="<%%TRANSLATION(view)%%>" class="children-count" style="visibility: hidden;"><span class="count-children">0</span> <i class="glyphicon glyphicon-new-window"></i></a>
+			<a href="Transactions_view.php?filterer_BidderID=<%%VALUE(ID)%%>&addNew_x=1&Embedded=1" target="_blank" class="modal-link new-child" title="<%%TRANSLATION(Add New)%%> (Transactions)" style="visibility: hidden;"><i class="text-success glyphicon glyphicon-plus"></i></a>
+		</td>
+		<td class="child-Payments-BidderID child-records-info" data-id="<%%VALUE(ID)%%>" data-table="Payments" data-lookup-field="BidderID">
+			<a href="Payments_view.php?filterer_BidderID=<%%VALUE(ID)%%>" target="_blank" title="<%%TRANSLATION(view)%%>" class="children-count" style="visibility: hidden;"><span class="count-children">0</span> <i class="glyphicon glyphicon-new-window"></i></a>
+			<a href="Payments_view.php?filterer_BidderID=<%%VALUE(ID)%%>&addNew_x=1&Embedded=1" target="_blank" class="modal-link new-child" title="<%%TRANSLATION(Add New)%%> (Payments)" style="visibility: hidden;"><i class="text-success glyphicon glyphicon-plus"></i></a>
+		</td>
+		<td class="child-Tickets-BidderID child-records-info" data-id="<%%VALUE(ID)%%>" data-table="Tickets" data-lookup-field="BidderID">
+			<a href="Tickets_view.php?filterer_BidderID=<%%VALUE(ID)%%>" target="_blank" title="<%%TRANSLATION(view)%%>" class="children-count" style="visibility: hidden;"><span class="count-children">0</span> <i class="glyphicon glyphicon-new-window"></i></a>
+			<a href="Tickets_view.php?filterer_BidderID=<%%VALUE(ID)%%>&addNew_x=1&Embedded=1" target="_blank" class="modal-link new-child" title="<%%TRANSLATION(Add New)%%> (Tickets)" style="visibility: hidden;"><i class="text-success glyphicon glyphicon-plus"></i></a>
+		</td>

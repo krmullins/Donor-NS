@@ -1,0 +1,11 @@
+<!-- Edit this file to change the layout of each record in the table view -->
+<!-- To disable clicking of a field, remove the <%%SELECT%%> and <%%ENDSELECT%%> formatters around it-->
+
+<!-- If you wish to hide the table view header that contains the column titles, -->
+<!-- add the following to the Payments_init() hook (in hooks/Payments.php file) -->
+<!--     $options->ShowTableHeader = 0;     -->
+
+		<td id="Payments-Date-<%%VALUE(ID)%%>" class="Payments-Date"><%%SELECT%%><%%VALUE(Date)%%><%%ENDSELECT%%></td>
+		<td id="Payments-BidderID-<%%VALUE(ID)%%>" class="Payments-BidderID"><%%SELECT%%><%%VALUE(BidderID)%%><%%ENDSELECT%%></td>
+		<td id="Payments-PaymentAmount-<%%VALUE(ID)%%>" class="Payments-PaymentAmount text-right"><%%SELECT%%><%%VALUE(PaymentAmount)%%><%%ENDSELECT%%></td>
+		<td id="Payments-PaymentType-<%%VALUE(ID)%%>" class="Payments-PaymentType"><%%SELECT%%><%%VALUE(PaymentType)%%><%%ENDSELECT%%></td>

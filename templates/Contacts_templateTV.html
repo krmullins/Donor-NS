@@ -1,0 +1,28 @@
+<!-- Edit this file to change the layout of each record in the table view -->
+<!-- To disable clicking of a field, remove the <%%SELECT%%> and <%%ENDSELECT%%> formatters around it-->
+
+<!-- If you wish to hide the table view header that contains the column titles, -->
+<!-- add the following to the Contacts_init() hook (in hooks/Contacts.php file) -->
+<!--     $options->ShowTableHeader = 0;     -->
+
+		<td id="Contacts-ID-<%%VALUE(ID)%%>" class="Contacts-ID text-right"><%%SELECT%%><%%VALUE(ID)%%><%%ENDSELECT%%></td>
+		<td id="Contacts-FirstName-<%%VALUE(ID)%%>" class="Contacts-FirstName"><%%SELECT%%><%%VALUE(FirstName)%%><%%ENDSELECT%%></td>
+		<td id="Contacts-LastName-<%%VALUE(ID)%%>" class="Contacts-LastName"><%%SELECT%%><%%VALUE(LastName)%%><%%ENDSELECT%%></td>
+		<td id="Contacts-SpouseName-<%%VALUE(ID)%%>" class="Contacts-SpouseName"><%%VALUE(SpouseName)%%></td>
+		<td id="Contacts-Business-<%%VALUE(ID)%%>" class="Contacts-Business"><%%SELECT%%><%%VALUE(Business)%%><%%ENDSELECT%%></td>
+		<td id="Contacts-Address1-<%%VALUE(ID)%%>" class="Contacts-Address1"><%%VALUE(Address1)%%></td>
+		<td id="Contacts-Address2-<%%VALUE(ID)%%>" class="Contacts-Address2"><%%VALUE(Address2)%%></td>
+		<td id="Contacts-City-<%%VALUE(ID)%%>" class="Contacts-City"><%%VALUE(City)%%></td>
+		<td id="Contacts-State-<%%VALUE(ID)%%>" class="Contacts-State"><%%VALUE(State)%%></td>
+		<td id="Contacts-Zip-<%%VALUE(ID)%%>" class="Contacts-Zip"><%%VALUE(Zip)%%></td>
+		<td id="Contacts-Cell-<%%VALUE(ID)%%>" class="Contacts-Cell"><%%VALUE(Cell)%%></td>
+		<td id="Contacts-Phone-<%%VALUE(ID)%%>" class="Contacts-Phone"><%%VALUE(Phone)%%></td>
+		<td id="Contacts-Email-<%%VALUE(ID)%%>" class="Contacts-Email"><a href="mailto:<%%VALUE(Email)%%>"><%%VALUE(Email)%%></a></td>
+		<td class="child-Donations-ContactID child-records-info" data-id="<%%VALUE(ID)%%>" data-table="Donations" data-lookup-field="ContactID">
+			<a href="Donations_view.php?filterer_ContactID=<%%VALUE(ID)%%>" target="_blank" title="<%%TRANSLATION(view)%%>" class="children-count" style="visibility: hidden;"><span class="count-children">0</span> <i class="glyphicon glyphicon-new-window"></i></a>
+			<a href="Donations_view.php?filterer_ContactID=<%%VALUE(ID)%%>&addNew_x=1&Embedded=1" target="_blank" class="modal-link new-child" title="<%%TRANSLATION(Add New)%%> (Donations)" style="visibility: hidden;"><i class="text-success glyphicon glyphicon-plus"></i></a>
+		</td>
+		<td class="child-Bidders-ContactID child-records-info" data-id="<%%VALUE(ID)%%>" data-table="Bidders" data-lookup-field="ContactID">
+			<a href="Bidders_view.php?filterer_ContactID=<%%VALUE(ID)%%>" target="_blank" title="<%%TRANSLATION(view)%%>" class="children-count" style="visibility: hidden;"><span class="count-children">0</span> <i class="glyphicon glyphicon-new-window"></i></a>
+			<a href="Bidders_view.php?filterer_ContactID=<%%VALUE(ID)%%>&addNew_x=1&Embedded=1" target="_blank" class="modal-link new-child" title="<%%TRANSLATION(Add New)%%> (Bidders)" style="visibility: hidden;"><i class="text-success glyphicon glyphicon-plus"></i></a>
+		</td>
