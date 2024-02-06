@@ -67,24 +67,42 @@
 
         <div class="row">
 
-            <div class="col-sm-12">
+            <div class="col-xs-12">
 
-                <div class="col-sm-3 text-center">
+                <div class="col-xs-2 text-center">
 
                     <img src="images/NSLogosmall.png">
 
                 </div>
 
-                <div class="col-sm-3 text-center">
+                <div class="col-xs-5 text-center">
 
                     <!-- company Info -->
 
                     <h4><b>Next Step Pregnancy Services</b></h4>
 
                     <h5>19526 - 64th Ave. West, <br>Lynnwood, WA 98036</h5>
-                
+
                 </div>
-                <div class="col-sm-3 text-center">
+                <div class="col-xs-5 text-right">
+                <h4><b>2023 Gala Invoice</b></h4>
+
+                 </div>
+            </div>
+        </div>
+        <div class="row">
+
+            <div class="col-xs-12">
+                <hr>
+
+                <div class="col-xs-2 text-right">
+
+                    <h4>Sold To:</h4>
+
+                </div>
+
+                <div class="col-xs-5 text-left">
+
                     <h4><b><?php echo $address_name; ?></b></h4>
 
                     <h5><?php if($address2 !=NULL){
@@ -98,21 +116,12 @@
                     echo $address1;
 
                     } else {echo $bidder['City']; ?>, <?php echo $bidder['State']; ?> <?php echo $bidder['Zip'];} ?></h5>
+
                 </div>
-            </div>
-        </div>
-        <div class="row">
-
-            <div class="col-sm-12 text-center">
-                <hr>
-
-                <h5><b>2023 Gala Invoice</b></h5>
 
             </div>
-
         </div>
 
-  
 
 
     </div>
