@@ -4,6 +4,9 @@ var dv = AppGiniHelper. DV;
 // hide the id-field
 dv.getField("ID").hide(); 
 dv.setTitle('Bidder Details');
+var BidderID = AppGiniHelper.DV.getField('ID');
+var BidderID_value = BidderID.getValue();
+
 
 // create a (full sized) row (width = 12) and
 // add a headline "Bidder Info" ("#Bidder Info"), then 
@@ -33,7 +36,7 @@ var container = dv. ActionButtons();
 var group = container.addGroup("Links"); 
 
 // add some links
-group.addLink("Print Invoice", "bidder_invoice.php?BidderID=1", Variation. Warning, "print"); 
+group.addLink("Print Invoice", "bidder_invoice.php?BidderID=" + BidderID_value, Variation. Warning, "print"); 
 group.addLink("Settings", "patients_view.php", null, "cog"); 
 
 // add two buttons for toggling the compact-mode with no text but icons "minus"/"plus"
