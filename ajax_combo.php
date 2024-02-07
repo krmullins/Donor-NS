@@ -197,6 +197,17 @@
 				'list_type' => 0,
 				'not_null' => false,
 			],
+			'CatValue' => [
+				'parent_table' => 'Catalog',
+				'parent_pk_field' => 'ID',
+				'parent_caption' => '`Catalog`.`Values`',
+				'parent_from' => '`Catalog` LEFT JOIN `CatalogTypes` as CatalogTypes1 ON `CatalogTypes1`.`ID`=`Catalog`.`TypeID` LEFT JOIN `CatalogGroups` as CatalogGroups1 ON `CatalogGroups1`.`ID`=`Catalog`.`GroupID` ',
+				'filterers' => [],
+				'custom_query' => '',
+				'inherit_permissions' => false,
+				'list_type' => 0,
+				'not_null' => false,
+			],
 		],
 		'Payments' => [
 			'BidderID' => [

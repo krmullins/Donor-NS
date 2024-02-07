@@ -9,7 +9,8 @@
 		/* data for selected record, or defaults if none is selected */
 		var data = {
 			CatalogID: <?php echo json_encode(['id' => $rdata['CatalogID'], 'value' => $rdata['CatalogID'], 'text' => $jdata['CatalogID']]); ?>,
-			BidderID: <?php echo json_encode(['id' => $rdata['BidderID'], 'value' => $rdata['BidderID'], 'text' => $jdata['BidderID']]); ?>
+			BidderID: <?php echo json_encode(['id' => $rdata['BidderID'], 'value' => $rdata['BidderID'], 'text' => $jdata['BidderID']]); ?>,
+			CatValue: <?php echo json_encode($jdata['CatValue']); ?>
 		};
 
 		/* initialize or continue using AppGini.cache for the current table */
@@ -22,6 +23,20 @@
 			if(u != 'ajax_combo.php') return false;
 			if(d.t == tn && d.f == 'CatalogID' && d.id == data.CatalogID.id)
 				return { results: [ data.CatalogID ], more: false, elapsed: 0.01 };
+			return false;
+		});
+
+		/* saved value for CatalogID autofills */
+		cache.addCheck(function(u, d) {
+			if(u != tn + '_autofill.php') return false;
+
+			for(var rnd in d) if(rnd.match(/^rnd/)) break;
+
+			if(d.mfk == 'CatalogID' && d.id == data.CatalogID.id) {
+				$j('#CatValue' + d[rnd]).html(data.CatValue);
+				return true;
+			}
+
 			return false;
 		});
 

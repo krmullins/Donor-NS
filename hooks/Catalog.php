@@ -86,7 +86,8 @@
 	}
 
 	function Catalog_after_update($data, $memberInfo, &$args) {
-
+//		$calc = $data['Values'];
+//		sql("update CATALOG set ValueTxt='{$calc}' where ID=%ID%", $eo);
 		return TRUE;
 	}
 

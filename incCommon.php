@@ -109,9 +109,9 @@
 			'Contacts' => "`Contacts`.`ID` as 'ID', `Contacts`.`FirstName` as 'FirstName', `Contacts`.`LastName` as 'LastName', `Contacts`.`SpouseName` as 'SpouseName', `Contacts`.`Business` as 'Business', `Contacts`.`Address1` as 'Address1', `Contacts`.`Address2` as 'Address2', `Contacts`.`City` as 'City', `Contacts`.`State` as 'State', `Contacts`.`Zip` as 'Zip', CONCAT_WS('-', LEFT(`Contacts`.`Cell`,3), MID(`Contacts`.`Cell`,4,3), RIGHT(`Contacts`.`Cell`,4)) as 'Cell', CONCAT_WS('-', LEFT(`Contacts`.`Phone`,3), MID(`Contacts`.`Phone`,4,3), RIGHT(`Contacts`.`Phone`,4)) as 'Phone', `Contacts`.`Email` as 'Email', `Contacts`.`Status` as 'Status', `Contacts`.`ContactMethod` as 'ContactMethod', `Contacts`.`MailingName` as 'MailingName', `Contacts`.`MailingNameFull` as 'MailingNameFull'",
 			'Settings' => "`Settings`.`ID` as 'ID', `Settings`.`EventName` as 'EventName', `Settings`.`EventDate` as 'EventDate', `Settings`.`AnonymousName` as 'AnonymousName', `Settings`.`Address` as 'Address', `Settings`.`RegTicketPrice` as 'RegTicketPrice', `Settings`.`DiscTicketPrice` as 'DiscTicketPrice', `Settings`.`DinnerCost` as 'DinnerCost', `Settings`.`Logo` as 'Logo'",
 			'Donations' => "`Donations`.`ID` as 'ID', `Donations`.`DonationName` as 'DonationName', `Donations`.`Description` as 'Description', `Donations`.`Restrictions` as 'Restrictions', `Donations`.`Value` as 'Value', IF(    CHAR_LENGTH(`Catalog1`.`CatalogNo`) || CHAR_LENGTH(`Catalog1`.`CatalogTitle`), CONCAT_WS('',   `Catalog1`.`CatalogNo`, ' - ', `Catalog1`.`CatalogTitle`), '') as 'CatalogID', IF(    CHAR_LENGTH(`Contacts1`.`MailingNameFull`), CONCAT_WS('',   `Contacts1`.`MailingNameFull`), '') as 'ContactID', `Donations`.`ContactPerson` as 'ContactPerson', `Donations`.`ContactPhone` as 'ContactPhone', `Donations`.`ItemStatus` as 'ItemStatus', `Donations`.`ProcuredBy` as 'ProcuredBy', if(`Donations`.`DateProcured`,date_format(`Donations`.`DateProcured`,'%m/%d/%Y'),'') as 'DateProcured', `Donations`.`AdditionalInfo` as 'AdditionalInfo', `Donations`.`Thanks` as 'Thanks', `Donations`.`Notes` as 'Notes'",
-			'Catalog' => "`Catalog`.`ID` as 'ID', `Catalog`.`CatalogNo` as 'CatalogNo', `Catalog`.`CatalogTitle` as 'CatalogTitle', `Catalog`.`Description` as 'Description', `Catalog`.`Restrictions` as 'Restrictions', IF(    CHAR_LENGTH(`CatalogTypes1`.`TypeName`), CONCAT_WS('',   `CatalogTypes1`.`TypeName`), '') as 'TypeID', IF(    CHAR_LENGTH(`CatalogGroups1`.`GroupName`), CONCAT_WS('',   `CatalogGroups1`.`GroupName`), '') as 'GroupID', `Catalog`.`DonorText` as 'DonorText', `Catalog`.`AdditionalInfo` as 'AdditionalInfo', `Catalog`.`CatalogValueText` as 'CatalogValueText', `Catalog`.`Quantity` as 'Quantity', `Catalog`.`bid1` as 'bid1', `Catalog`.`bid2` as 'bid2', `Catalog`.`bid3` as 'bid3', `Catalog`.`bid4` as 'bid4', `Catalog`.`bid5` as 'bid5', `Catalog`.`bid6` as 'bid6', `Catalog`.`bid7` as 'bid7', `Catalog`.`bid8` as 'bid8', `Catalog`.`bid9` as 'bid9', `Catalog`.`bid10` as 'bid10', `Catalog`.`bid11` as 'bid11', `Catalog`.`bid12` as 'bid12'",
+			'Catalog' => "`Catalog`.`ID` as 'ID', `Catalog`.`CatalogNo` as 'CatalogNo', `Catalog`.`CatalogTitle` as 'CatalogTitle', `Catalog`.`Description` as 'Description', `Catalog`.`Restrictions` as 'Restrictions', IF(    CHAR_LENGTH(`CatalogTypes1`.`TypeName`), CONCAT_WS('',   `CatalogTypes1`.`TypeName`), '') as 'TypeID', IF(    CHAR_LENGTH(`CatalogGroups1`.`GroupName`), CONCAT_WS('',   `CatalogGroups1`.`GroupName`), '') as 'GroupID', `Catalog`.`DonorText` as 'DonorText', `Catalog`.`AdditionalInfo` as 'AdditionalInfo', `Catalog`.`CatalogValueText` as 'CatalogValueText', `Catalog`.`Quantity` as 'Quantity', `Catalog`.`bid1` as 'bid1', `Catalog`.`bid2` as 'bid2', `Catalog`.`bid3` as 'bid3', `Catalog`.`bid4` as 'bid4', `Catalog`.`bid5` as 'bid5', `Catalog`.`bid6` as 'bid6', `Catalog`.`bid7` as 'bid7', `Catalog`.`bid8` as 'bid8', `Catalog`.`bid9` as 'bid9', `Catalog`.`bid10` as 'bid10', `Catalog`.`bid11` as 'bid11', `Catalog`.`bid12` as 'bid12', `Catalog`.`Values` as 'Values', `Catalog`.`ValueTxt` as 'ValueTxt'",
 			'Bidders' => "`Bidders`.`ID` as 'ID', IF(    CHAR_LENGTH(`Contacts1`.`MailingNameFull`), CONCAT_WS('',   `Contacts1`.`MailingNameFull`), '') as 'ContactID', `Bidders`.`BidNo` as 'BidNo', `Bidders`.`BidderType` as 'BidderType', `Bidders`.`CheckedIn` as 'CheckedIn', `Bidders`.`QuickPay` as 'QuickPay', `Bidders`.`TotalBids` as 'TotalBids', `Bidders`.`TotalOwed` as 'TotalOwed', IF(    CHAR_LENGTH(`Contacts1`.`MailingNameFull`), CONCAT_WS('',   `Contacts1`.`MailingNameFull`), '') as 'MailingName', `Bidders`.`TablePreference` as 'TablePreference', `Bidders`.`Card` as 'Card', `Bidders`.`TotalPaid` as 'TotalPaid', IF(    CHAR_LENGTH(`Contacts1`.`Business`), CONCAT_WS('',   `Contacts1`.`Business`), '') as 'Business', IF(    CHAR_LENGTH(`Contacts1`.`Address1`), CONCAT_WS('',   `Contacts1`.`Address1`), '') as 'Address1', IF(    CHAR_LENGTH(`Contacts1`.`Address2`), CONCAT_WS('',   `Contacts1`.`Address2`), '') as 'Address2', IF(    CHAR_LENGTH(`Contacts1`.`City`), CONCAT_WS('',   `Contacts1`.`City`), '') as 'City', IF(    CHAR_LENGTH(`Contacts1`.`State`), CONCAT_WS('',   `Contacts1`.`State`), '') as 'State', IF(    CHAR_LENGTH(`Contacts1`.`Zip`), CONCAT_WS('',   `Contacts1`.`Zip`), '') as 'Zip'",
-			'Transactions' => "`Transactions`.`ID` as 'ID', IF(    CHAR_LENGTH(`Catalog1`.`CatalogNo`) || CHAR_LENGTH(`Catalog1`.`CatalogTitle`), CONCAT_WS('',   `Catalog1`.`CatalogNo`, ' - ', `Catalog1`.`CatalogTitle`), '') as 'CatalogID', IF(    CHAR_LENGTH(`Bidders1`.`BidNo`) || CHAR_LENGTH(`Contacts1`.`MailingNameFull`), CONCAT_WS('',   `Bidders1`.`BidNo`, ' - ', `Contacts1`.`MailingNameFull`), '') as 'BidderID', `Transactions`.`Price` as 'Price', `Transactions`.`Quantity` as 'Quantity', `Transactions`.`Total` as 'Total'",
+			'Transactions' => "`Transactions`.`ID` as 'ID', IF(    CHAR_LENGTH(`Catalog1`.`CatalogNo`) || CHAR_LENGTH(`Catalog1`.`CatalogTitle`), CONCAT_WS('',   `Catalog1`.`CatalogNo`, ' - ', `Catalog1`.`CatalogTitle`), '') as 'CatalogID', IF(    CHAR_LENGTH(`Bidders1`.`BidNo`) || CHAR_LENGTH(`Contacts1`.`MailingNameFull`), CONCAT_WS('',   `Bidders1`.`BidNo`, ' - ', `Contacts1`.`MailingNameFull`), '') as 'BidderID', `Transactions`.`Price` as 'Price', `Transactions`.`Quantity` as 'Quantity', `Transactions`.`Total` as 'Total', IF(    CHAR_LENGTH(`Catalog1`.`Values`), CONCAT_WS('',   `Catalog1`.`Values`), '') as 'CatValue'",
 			'Payments' => "`Payments`.`ID` as 'ID', if(`Payments`.`Date`,date_format(`Payments`.`Date`,'%m/%d/%Y'),'') as 'Date', IF(    CHAR_LENGTH(`Bidders1`.`BidNo`) || CHAR_LENGTH(`Contacts1`.`MailingNameFull`), CONCAT_WS('',   `Bidders1`.`BidNo`, ' - ', `Contacts1`.`MailingNameFull`), '') as 'BidderID', CONCAT('$', FORMAT(`Payments`.`PaymentAmount`, 2)) as 'PaymentAmount', `Payments`.`PaymentType` as 'PaymentType'",
 			'CatalogTypes' => "`CatalogTypes`.`ID` as 'ID', `CatalogTypes`.`TypeName` as 'TypeName'",
 			'CatalogGroups' => "`CatalogGroups`.`ID` as 'ID', `CatalogGroups`.`GroupName` as 'GroupName'",
@@ -273,6 +273,8 @@
 				'bid10' => '',
 				'bid11' => '',
 				'bid12' => '',
+				'Values' => '',
+				'ValueTxt' => '',
 			],
 			'Bidders' => [
 				'ID' => '',
@@ -301,6 +303,7 @@
 				'Price' => '0.00',
 				'Quantity' => '1',
 				'Total' => '',
+				'CatValue' => '',
 			],
 			'Payments' => [
 				'ID' => '',
@@ -1205,9 +1208,9 @@ EOT;
 					'display-refresh' => true,
 					'display-add-new' => true,
 					'forced-where' => '',
-					'display-fields' => [1 => 'Catalog #', 2 => 'Bidder', 3 => 'Price', 4 => 'Quantity', 5 => 'Total'],
-					'display-field-names' => [1 => 'CatalogID', 2 => 'BidderID', 3 => 'Price', 4 => 'Quantity', 5 => 'Total'],
-					'sortable-fields' => [0 => '`Transactions`.`ID`', 1 => 2, 2 => 3, 3 => '`Transactions`.`Price`', 4 => '`Transactions`.`Quantity`', 5 => '`Transactions`.`Total`'],
+					'display-fields' => [1 => 'Catalog #', 2 => 'Bidder', 3 => 'Price', 4 => 'Quantity', 5 => 'Total', 6 => 'Catalog Value'],
+					'display-field-names' => [1 => 'CatalogID', 2 => 'BidderID', 3 => 'Price', 4 => 'Quantity', 5 => 'Total', 6 => 'CatValue'],
+					'sortable-fields' => [0 => '`Transactions`.`ID`', 1 => 2, 2 => 3, 3 => '`Transactions`.`Price`', 4 => '`Transactions`.`Quantity`', 5 => '`Transactions`.`Total`', 6 => '`Catalog1`.`Values`'],
 					'records-per-page' => 10,
 					'default-sort-by' => false,
 					'default-sort-direction' => 'asc',
@@ -1216,7 +1219,7 @@ EOT;
 					'show-page-progress' => true,
 					'template' => 'children-Transactions',
 					'template-printable' => 'children-Transactions-printable',
-					'query' => "SELECT `Transactions`.`ID` as 'ID', IF(    CHAR_LENGTH(`Catalog1`.`CatalogNo`) || CHAR_LENGTH(`Catalog1`.`CatalogTitle`), CONCAT_WS('',   `Catalog1`.`CatalogNo`, ' - ', `Catalog1`.`CatalogTitle`), '') as 'CatalogID', IF(    CHAR_LENGTH(`Bidders1`.`BidNo`) || CHAR_LENGTH(`Contacts1`.`MailingNameFull`), CONCAT_WS('',   `Bidders1`.`BidNo`, ' - ', `Contacts1`.`MailingNameFull`), '') as 'BidderID', `Transactions`.`Price` as 'Price', `Transactions`.`Quantity` as 'Quantity', `Transactions`.`Total` as 'Total' FROM `Transactions` LEFT JOIN `Catalog` as Catalog1 ON `Catalog1`.`ID`=`Transactions`.`CatalogID` LEFT JOIN `Bidders` as Bidders1 ON `Bidders1`.`ID`=`Transactions`.`BidderID` LEFT JOIN `Contacts` as Contacts1 ON `Contacts1`.`ID`=`Bidders1`.`ContactID` "
+					'query' => "SELECT `Transactions`.`ID` as 'ID', IF(    CHAR_LENGTH(`Catalog1`.`CatalogNo`) || CHAR_LENGTH(`Catalog1`.`CatalogTitle`), CONCAT_WS('',   `Catalog1`.`CatalogNo`, ' - ', `Catalog1`.`CatalogTitle`), '') as 'CatalogID', IF(    CHAR_LENGTH(`Bidders1`.`BidNo`) || CHAR_LENGTH(`Contacts1`.`MailingNameFull`), CONCAT_WS('',   `Bidders1`.`BidNo`, ' - ', `Contacts1`.`MailingNameFull`), '') as 'BidderID', `Transactions`.`Price` as 'Price', `Transactions`.`Quantity` as 'Quantity', `Transactions`.`Total` as 'Total', IF(    CHAR_LENGTH(`Catalog1`.`Values`), CONCAT_WS('',   `Catalog1`.`Values`), '') as 'CatValue' FROM `Transactions` LEFT JOIN `Catalog` as Catalog1 ON `Catalog1`.`ID`=`Transactions`.`CatalogID` LEFT JOIN `Bidders` as Bidders1 ON `Bidders1`.`ID`=`Transactions`.`BidderID` LEFT JOIN `Contacts` as Contacts1 ON `Contacts1`.`ID`=`Bidders1`.`ContactID` "
 				],
 				'BidderID' => [
 					'parent-table' => 'Bidders',
@@ -1229,9 +1232,9 @@ EOT;
 					'display-refresh' => true,
 					'display-add-new' => true,
 					'forced-where' => '',
-					'display-fields' => [1 => 'Catalog #', 2 => 'Bidder', 3 => 'Price', 4 => 'Quantity', 5 => 'Total'],
-					'display-field-names' => [1 => 'CatalogID', 2 => 'BidderID', 3 => 'Price', 4 => 'Quantity', 5 => 'Total'],
-					'sortable-fields' => [0 => '`Transactions`.`ID`', 1 => 2, 2 => 3, 3 => '`Transactions`.`Price`', 4 => '`Transactions`.`Quantity`', 5 => '`Transactions`.`Total`'],
+					'display-fields' => [1 => 'Catalog #', 2 => 'Bidder', 3 => 'Price', 4 => 'Quantity', 5 => 'Total', 6 => 'Catalog Value'],
+					'display-field-names' => [1 => 'CatalogID', 2 => 'BidderID', 3 => 'Price', 4 => 'Quantity', 5 => 'Total', 6 => 'CatValue'],
+					'sortable-fields' => [0 => '`Transactions`.`ID`', 1 => 2, 2 => 3, 3 => '`Transactions`.`Price`', 4 => '`Transactions`.`Quantity`', 5 => '`Transactions`.`Total`', 6 => '`Catalog1`.`Values`'],
 					'records-per-page' => 10,
 					'default-sort-by' => false,
 					'default-sort-direction' => 'asc',
@@ -1240,7 +1243,7 @@ EOT;
 					'show-page-progress' => true,
 					'template' => 'children-Transactions',
 					'template-printable' => 'children-Transactions-printable',
-					'query' => "SELECT `Transactions`.`ID` as 'ID', IF(    CHAR_LENGTH(`Catalog1`.`CatalogNo`) || CHAR_LENGTH(`Catalog1`.`CatalogTitle`), CONCAT_WS('',   `Catalog1`.`CatalogNo`, ' - ', `Catalog1`.`CatalogTitle`), '') as 'CatalogID', IF(    CHAR_LENGTH(`Bidders1`.`BidNo`) || CHAR_LENGTH(`Contacts1`.`MailingNameFull`), CONCAT_WS('',   `Bidders1`.`BidNo`, ' - ', `Contacts1`.`MailingNameFull`), '') as 'BidderID', `Transactions`.`Price` as 'Price', `Transactions`.`Quantity` as 'Quantity', `Transactions`.`Total` as 'Total' FROM `Transactions` LEFT JOIN `Catalog` as Catalog1 ON `Catalog1`.`ID`=`Transactions`.`CatalogID` LEFT JOIN `Bidders` as Bidders1 ON `Bidders1`.`ID`=`Transactions`.`BidderID` LEFT JOIN `Contacts` as Contacts1 ON `Contacts1`.`ID`=`Bidders1`.`ContactID` "
+					'query' => "SELECT `Transactions`.`ID` as 'ID', IF(    CHAR_LENGTH(`Catalog1`.`CatalogNo`) || CHAR_LENGTH(`Catalog1`.`CatalogTitle`), CONCAT_WS('',   `Catalog1`.`CatalogNo`, ' - ', `Catalog1`.`CatalogTitle`), '') as 'CatalogID', IF(    CHAR_LENGTH(`Bidders1`.`BidNo`) || CHAR_LENGTH(`Contacts1`.`MailingNameFull`), CONCAT_WS('',   `Bidders1`.`BidNo`, ' - ', `Contacts1`.`MailingNameFull`), '') as 'BidderID', `Transactions`.`Price` as 'Price', `Transactions`.`Quantity` as 'Quantity', `Transactions`.`Total` as 'Total', IF(    CHAR_LENGTH(`Catalog1`.`Values`), CONCAT_WS('',   `Catalog1`.`Values`), '') as 'CatValue' FROM `Transactions` LEFT JOIN `Catalog` as Catalog1 ON `Catalog1`.`ID`=`Transactions`.`CatalogID` LEFT JOIN `Bidders` as Bidders1 ON `Bidders1`.`ID`=`Transactions`.`BidderID` LEFT JOIN `Contacts` as Contacts1 ON `Contacts1`.`ID`=`Bidders1`.`ContactID` "
 				],
 			],
 			'Payments' => [

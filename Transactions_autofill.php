@@ -21,6 +21,20 @@
 
 	switch($mfk) {
 
+		case 'CatalogID':
+			if(!$id) {
+				?>
+				$j('#CatValue<?php echo $rnd1; ?>').html('&nbsp;');
+				<?php
+				break;
+			}
+			$res = sql("SELECT `Catalog`.`ID` as 'ID', `Catalog`.`CatalogNo` as 'CatalogNo', `Catalog`.`CatalogTitle` as 'CatalogTitle', `Catalog`.`Description` as 'Description', `Catalog`.`Restrictions` as 'Restrictions', IF(    CHAR_LENGTH(`CatalogTypes1`.`TypeName`), CONCAT_WS('',   `CatalogTypes1`.`TypeName`), '') as 'TypeID', IF(    CHAR_LENGTH(`CatalogGroups1`.`GroupName`), CONCAT_WS('',   `CatalogGroups1`.`GroupName`), '') as 'GroupID', `Catalog`.`DonorText` as 'DonorText', `Catalog`.`AdditionalInfo` as 'AdditionalInfo', `Catalog`.`CatalogValueText` as 'CatalogValueText', `Catalog`.`Quantity` as 'Quantity', `Catalog`.`bid1` as 'bid1', `Catalog`.`bid2` as 'bid2', `Catalog`.`bid3` as 'bid3', `Catalog`.`bid4` as 'bid4', `Catalog`.`bid5` as 'bid5', `Catalog`.`bid6` as 'bid6', `Catalog`.`bid7` as 'bid7', `Catalog`.`bid8` as 'bid8', `Catalog`.`bid9` as 'bid9', `Catalog`.`bid10` as 'bid10', `Catalog`.`bid11` as 'bid11', `Catalog`.`bid12` as 'bid12', `Catalog`.`Values` as 'Values', `Catalog`.`ValueTxt` as 'ValueTxt' FROM `Catalog` LEFT JOIN `CatalogTypes` as CatalogTypes1 ON `CatalogTypes1`.`ID`=`Catalog`.`TypeID` LEFT JOIN `CatalogGroups` as CatalogGroups1 ON `CatalogGroups1`.`ID`=`Catalog`.`GroupID`  WHERE `Catalog`.`ID`='{$id}' limit 1", $eo);
+			$row = db_fetch_assoc($res);
+			?>
+			$j('#CatValue<?php echo $rnd1; ?>').html('<?php echo addslashes(str_replace(["\r", "\n"], '', safe_html($row['Values']))); ?>&nbsp;');
+			<?php
+			break;
+
 
 	}
 

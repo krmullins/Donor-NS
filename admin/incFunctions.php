@@ -1475,6 +1475,20 @@
 							'description' => '',
 						],
 					],
+					'Values' => [
+						'appgini' => "DECIMAL(10,2) NULL",
+						'info' => [
+							'caption' => 'Total Value',
+							'description' => '',
+						],
+					],
+					'ValueTxt' => [
+						'appgini' => "VARCHAR(50) NULL",
+						'info' => [
+							'caption' => 'ValueTxt',
+							'description' => '',
+						],
+					],
 				],
 				'Bidders' => [
 					'ID' => [
@@ -1641,9 +1655,16 @@
 						],
 					],
 					'Total' => [
-						'appgini' => "INT NULL",
+						'appgini' => "DECIMAL(10,2) NULL",
 						'info' => [
 							'caption' => 'Total',
+							'description' => '',
+						],
+					],
+					'CatValue' => [
+						'appgini' => "INT UNSIGNED NULL",
+						'info' => [
+							'caption' => 'Catalog Value',
 							'description' => '',
 						],
 					],
@@ -3000,7 +3021,17 @@
 			],
 			'Settings' => [],
 			'Donations' => [],
-			'Catalog' => [],
+			'Catalog' => [
+				'Values' => 'SELECT CONCAT(\'$\', FORMAT(COALESCE(SUM(`Donations`.`Value`), 0.0), 2)) AS `DonationTotal`
+					FROM `Catalog`
+					
+					LEFT JOIN  `Donations` ON `Donations`.`CatalogID`=`Catalog`.`ID`  
+					
+					WHERE `Donations`.`CatalogID` = %ID%',
+				'ValueTxt' => 'SELECT CONVERT(`Values`, CHAR) AS convertedValue
+					FROM catalog;
+					WHERE `Donations`.`CatalogID` = %ID%',
+			],
 			'Bidders' => [
 				'TotalBids' => 'SELECT CONCAT(\'$\', FORMAT(COALESCE(SUM(`Transactions`.`Total`), 0.0), 2)) AS `Total`
 					FROM `Bidders`
@@ -3185,6 +3216,7 @@
 			'Transactions' => [
 				'CatalogID' => 'SELECT `Catalog`.`ID`, IF(CHAR_LENGTH(`Catalog`.`CatalogNo`) || CHAR_LENGTH(`Catalog`.`CatalogTitle`), CONCAT_WS(\'\', `Catalog`.`CatalogNo`, \' - \', `Catalog`.`CatalogTitle`), \'\') FROM `Catalog` LEFT JOIN `CatalogTypes` as CatalogTypes1 ON `CatalogTypes1`.`ID`=`Catalog`.`TypeID` LEFT JOIN `CatalogGroups` as CatalogGroups1 ON `CatalogGroups1`.`ID`=`Catalog`.`GroupID` ORDER BY 2',
 				'BidderID' => 'SELECT `Bidders`.`ID`, IF(CHAR_LENGTH(`Bidders`.`BidNo`) || CHAR_LENGTH(`Bidders`.`ContactID`), CONCAT_WS(\'\', `Bidders`.`BidNo`, \' - \', IF(    CHAR_LENGTH(`Contacts1`.`MailingNameFull`), CONCAT_WS(\'\',   `Contacts1`.`MailingNameFull`), \'\')), \'\') FROM `Bidders` LEFT JOIN `Contacts` as Contacts1 ON `Contacts1`.`ID`=`Bidders`.`ContactID` ORDER BY 2',
+				'CatValue' => 'SELECT `Catalog`.`ID`, `Catalog`.`Values` FROM `Catalog` LEFT JOIN `CatalogTypes` as CatalogTypes1 ON `CatalogTypes1`.`ID`=`Catalog`.`TypeID` LEFT JOIN `CatalogGroups` as CatalogGroups1 ON `CatalogGroups1`.`ID`=`Catalog`.`GroupID` ORDER BY 2',
 			],
 			'Payments' => [
 				'BidderID' => 'SELECT `Bidders`.`ID`, IF(CHAR_LENGTH(`Bidders`.`BidNo`) || CHAR_LENGTH(`Bidders`.`ContactID`), CONCAT_WS(\'\', `Bidders`.`BidNo`, \' - \', IF(    CHAR_LENGTH(`Contacts1`.`MailingNameFull`), CONCAT_WS(\'\',   `Contacts1`.`MailingNameFull`), \'\')), \'\') FROM `Bidders` LEFT JOIN `Contacts` as Contacts1 ON `Contacts1`.`ID`=`Bidders`.`ContactID` ORDER BY 2',

@@ -98,7 +98,9 @@
 				`bid9` VARCHAR(10) NULL,
 				`bid10` VARCHAR(10) NULL,
 				`bid11` VARCHAR(10) NULL,
-				`bid12` VARCHAR(10) NULL
+				`bid12` VARCHAR(10) NULL,
+				`Values` DECIMAL(10,2) NULL,
+				`ValueTxt` VARCHAR(50) NULL
 			) CHARSET utf8mb4"
 		);
 		setupIndexes('Catalog', ['TypeID','GroupID',]);
@@ -139,7 +141,8 @@
 				`BidderID` INT UNSIGNED NULL,
 				`Price` DECIMAL(10,2) NULL DEFAULT '0.00',
 				`Quantity` TINYINT NULL DEFAULT '1',
-				`Total` INT NULL
+				`Total` DECIMAL(10,2) NULL,
+				`CatValue` INT UNSIGNED NULL
 			) CHARSET utf8mb4"
 		);
 		setupIndexes('Transactions', ['CatalogID','BidderID',]);

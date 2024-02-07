@@ -17,7 +17,7 @@ var row_1 = new AppGiniLayout([6,6])
 // and add headlines (starting with "#") and other fields into columns 1 and 2
 var row_2 = new AppGiniLayout([6, 6])
     .add(1, ["#Details","Description","Restrictions", "Quantity"])
-    .add(2, ["#Extra", "DonorText", "CatalogValueText", "AdditionalInfo"]);
+    .add(2, ["#Extra", "Values","CatalogValueText","DonorText","AdditionalInfo"]);
 
 
 

@@ -42,6 +42,7 @@
 		'Transactions' => function($data, $options = []) {
 			if(isset($data['CatalogID'])) $data['CatalogID'] = pkGivenLookupText($data['CatalogID'], 'Transactions', 'CatalogID');
 			if(isset($data['BidderID'])) $data['BidderID'] = pkGivenLookupText($data['BidderID'], 'Transactions', 'BidderID');
+			if(isset($data['CatValue'])) $data['CatValue'] = thisOr($data['CatalogID'], pkGivenLookupText($data['CatValue'], 'Transactions', 'CatValue'));
 
 			return $data;
 		},

@@ -17,6 +17,7 @@ function Transactions_insert(&$error_message = '') {
 		'BidderID' => Request::lookup('BidderID', ''),
 		'Price' => Request::val('Price', '0.00'),
 		'Quantity' => Request::val('Quantity', '1'),
+		'CatValue' => Request::lookup('CatalogID'),
 	];
 
 
@@ -118,6 +119,7 @@ function Transactions_update(&$selected_id, &$error_message = '') {
 		'BidderID' => Request::lookup('BidderID', ''),
 		'Price' => Request::val('Price', ''),
 		'Quantity' => Request::val('Quantity', ''),
+		'CatValue' => Request::lookup('CatalogID'),
 	];
 
 	// get existing values
@@ -601,6 +603,23 @@ function Transactions_form($selected_id = '', $AllowUpdate = 1, $AllowInsert = 1
 	// ajaxed auto-fill fields
 	$templateCode .= '<script>';
 	$templateCode .= '$j(function() {';
+
+	$templateCode .= "\tCatalogID_update_autofills$rnd1 = function() {\n";
+	$templateCode .= "\t\t\$j.ajax({\n";
+	if($dvprint) {
+		$templateCode .= "\t\t\turl: 'Transactions_autofill.php?rnd1=$rnd1&mfk=CatalogID&id=' + encodeURIComponent('".addslashes($row['CatalogID'])."'),\n";
+		$templateCode .= "\t\t\tcontentType: 'application/x-www-form-urlencoded; charset=" . datalist_db_encoding . "',\n";
+		$templateCode .= "\t\t\ttype: 'GET'\n";
+	} else {
+		$templateCode .= "\t\t\turl: 'Transactions_autofill.php?rnd1=$rnd1&mfk=CatalogID&id=' + encodeURIComponent(AppGini.current_CatalogID{$rnd1}.value),\n";
+		$templateCode .= "\t\t\tcontentType: 'application/x-www-form-urlencoded; charset=" . datalist_db_encoding . "',\n";
+		$templateCode .= "\t\t\ttype: 'GET',\n";
+		$templateCode .= "\t\t\tbeforeSend: function() { \$j('#CatalogID$rnd1').prop('disabled', true); },\n";
+		$templateCode .= "\t\t\tcomplete: function() { " . (($arrPerm['insert'] || (($arrPerm['edit'] == 1 && $ownerMemberID == getLoggedMemberID()) || ($arrPerm['edit'] == 2 && $ownerGroupID == getLoggedGroupID()) || $arrPerm['edit'] == 3)) ? "\$j('#CatalogID$rnd1').prop('disabled', false); " : "\$j('#CatalogID$rnd1').prop('disabled', true); ")." \$j(window).resize(); }\n";
+	}
+	$templateCode .= "\t\t});\n";
+	$templateCode .= "\t};\n";
+	if(!$dvprint) $templateCode .= "\tif(\$j('#CatalogID_caption').length) \$j('#CatalogID_caption').click(function() { CatalogID_update_autofills$rnd1(); });\n";
 
 
 	$templateCode.="});";

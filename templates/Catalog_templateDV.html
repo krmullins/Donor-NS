@@ -10,6 +10,8 @@
 	<div class="row vspacer-md">
 		<div class="col-xs-12 children-links">
 			<input type="hidden" id="Donations_hclink" value="Donations_view.php?filterer_CatalogID=<%%URLVALUE(ID)%%>&<%%EMBEDDED%%>">
+			<a class="hidden-xs btn btn-default btn-lg pull-right hidden hspacer-sm vspacer-sm" href="Transactions_view.php?filterer_CatalogID=<%%URLVALUE(ID)%%>&<%%EMBEDDED%%>" id="Transactions_link"><img src="resources/table_icons/32Px - 397.png"> Transactions</a>
+			<a class="visible-xs btn btn-default btn-lg btn-block hidden vspacer-sm" href="Transactions_view.php?filterer_CatalogID=<%%URLVALUE(ID)%%>&<%%EMBEDDED%%>" id="xs_Transactions_link"><img src="resources/table_icons/32Px - 397.png"> Transactions</a>
 			<input type="hidden" id="Transactions_hclink" value="Transactions_view.php?filterer_CatalogID=<%%URLVALUE(ID)%%>&<%%EMBEDDED%%>">
 			<div class="clearfix"></div>
 		</div>
@@ -121,6 +123,24 @@
 					<label class="control-label col-lg-3" for="Quantity">Quantity</label>
 					<div class="col-lg-9">
 						<input maxlength="50" type="text" class="form-control" name="Quantity" id="Quantity" value="<%%VALUE(Quantity)%%>">
+					</div>
+				</div>
+
+				<!-- Field: Total Value -->
+				<div class="form-group Catalog-Values">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3">Total Value</label>
+					<div class="col-lg-9">
+						<div class="form-control-static" id="Values"><%%VALUE(Values)%%></div>
+					</div>
+				</div>
+
+				<!-- Field: ValueTxt -->
+				<div class="form-group Catalog-ValueTxt">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3">ValueTxt</label>
+					<div class="col-lg-9">
+						<div class="form-control-static" id="ValueTxt"><%%VALUE(ValueTxt)%%></div>
 					</div>
 				</div>
 

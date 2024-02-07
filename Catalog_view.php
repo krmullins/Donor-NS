@@ -41,6 +41,8 @@
 		"`Catalog`.`bid10`" => "bid10",
 		"`Catalog`.`bid11`" => "bid11",
 		"`Catalog`.`bid12`" => "bid12",
+		"`Catalog`.`Values`" => "Values",
+		"`Catalog`.`ValueTxt`" => "ValueTxt",
 	];
 	// mapping incoming sort by requests to actual query fields
 	$x->SortFields = [
@@ -67,6 +69,8 @@
 		21 => 21,
 		22 => 22,
 		23 => 23,
+		24 => '`Catalog`.`Values`',
+		25 => 25,
 	];
 
 	// Fields that can be displayed in the csv file
@@ -94,6 +98,8 @@
 		"`Catalog`.`bid10`" => "bid10",
 		"`Catalog`.`bid11`" => "bid11",
 		"`Catalog`.`bid12`" => "bid12",
+		"`Catalog`.`Values`" => "Values",
+		"`Catalog`.`ValueTxt`" => "ValueTxt",
 	];
 	// Fields that can be filtered
 	$x->QueryFieldsFilters = [
@@ -108,6 +114,8 @@
 		"`Catalog`.`AdditionalInfo`" => "Additional Info",
 		"`Catalog`.`CatalogValueText`" => "Catalog Value Text",
 		"`Catalog`.`Quantity`" => "Quantity",
+		"`Catalog`.`Values`" => "Total Value",
+		"`Catalog`.`ValueTxt`" => "ValueTxt",
 	];
 
 	// Fields that can be quick searched
@@ -123,6 +131,8 @@
 		"`Catalog`.`AdditionalInfo`" => "AdditionalInfo",
 		"`Catalog`.`CatalogValueText`" => "CatalogValueText",
 		"`Catalog`.`Quantity`" => "Quantity",
+		"`Catalog`.`Values`" => "Values",
+		"`Catalog`.`ValueTxt`" => "ValueTxt",
 	];
 
 	// Lookup fields that can be used as filterers
@@ -157,10 +167,10 @@
 	$x->DefaultSortField = '2';
 	$x->DefaultSortDirection = 'asc';
 
-	$x->ColWidth = [150, 150, 150, 150, 150, 150, 150, 150, 150, 150, 100, 100, ];
-	$x->ColCaption = ['Catalog No', 'Catalog Title', 'Description', 'Restrictions', 'Catalog Type', 'Grouping', 'Donor Text', 'Additional Info', 'Catalog Value Text', 'Quantity', 'Donations', 'Transactions', ];
-	$x->ColFieldName = ['CatalogNo', 'CatalogTitle', 'Description', 'Restrictions', 'TypeID', 'GroupID', 'DonorText', 'AdditionalInfo', 'CatalogValueText', 'Quantity', '%Donations.CatalogID%', '%Transactions.CatalogID%', ];
-	$x->ColNumber  = [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, -1, -1, ];
+	$x->ColWidth = [150, 150, 150, 150, 150, 150, 150, 150, 150, 150, 150, 150, 100, 100, ];
+	$x->ColCaption = ['Catalog No', 'Catalog Title', 'Description', 'Restrictions', 'Catalog Type', 'Grouping', 'Donor Text', 'Additional Info', 'Catalog Value Text', 'Quantity', 'Total Value', 'ValueTxt', 'Donations', 'Transactions', ];
+	$x->ColFieldName = ['CatalogNo', 'CatalogTitle', 'Description', 'Restrictions', 'TypeID', 'GroupID', 'DonorText', 'AdditionalInfo', 'CatalogValueText', 'Quantity', 'Values', 'ValueTxt', '%Donations.CatalogID%', '%Transactions.CatalogID%', ];
+	$x->ColNumber  = [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 24, 25, -1, -1, ];
 
 	// template paths below are based on the app main directory
 	$x->Template = 'templates/Catalog_templateTV.html';
@@ -171,7 +181,7 @@
 	$x->ShowTableHeader = 1;
 	$x->TVClasses = "";
 	$x->DVClasses = "";
-	$x->HasCalculatedFields = false;
+	$x->HasCalculatedFields = true;
 	$x->AllowConsoleLog = false;
 	$x->AllowDVNavigation = true;
 

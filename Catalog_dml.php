@@ -629,6 +629,8 @@ function Catalog_form($selected_id = '', $AllowUpdate = 1, $AllowInsert = 1, $Al
 	$templateCode = str_replace('<%%UPLOADFILE(bid10)%%>', '', $templateCode);
 	$templateCode = str_replace('<%%UPLOADFILE(bid11)%%>', '', $templateCode);
 	$templateCode = str_replace('<%%UPLOADFILE(bid12)%%>', '', $templateCode);
+	$templateCode = str_replace('<%%UPLOADFILE(Values)%%>', '', $templateCode);
+	$templateCode = str_replace('<%%UPLOADFILE(ValueTxt)%%>', '', $templateCode);
 
 	// process values
 	if($selected_id) {
@@ -697,6 +699,10 @@ function Catalog_form($selected_id = '', $AllowUpdate = 1, $AllowInsert = 1, $Al
 		$templateCode = str_replace('<%%URLVALUE(bid11)%%>', urlencode($urow['bid11']), $templateCode);
 		$templateCode = str_replace('<%%VALUE(bid12)%%>', safe_html($urow['bid12']), $templateCode);
 		$templateCode = str_replace('<%%URLVALUE(bid12)%%>', urlencode($urow['bid12']), $templateCode);
+		$templateCode = str_replace('<%%VALUE(Values)%%>', safe_html($urow['Values']), $templateCode);
+		$templateCode = str_replace('<%%URLVALUE(Values)%%>', urlencode($urow['Values']), $templateCode);
+		$templateCode = str_replace('<%%VALUE(ValueTxt)%%>', safe_html($urow['ValueTxt']), $templateCode);
+		$templateCode = str_replace('<%%URLVALUE(ValueTxt)%%>', urlencode($urow['ValueTxt']), $templateCode);
 	} else {
 		$templateCode = str_replace('<%%VALUE(ID)%%>', '', $templateCode);
 		$templateCode = str_replace('<%%URLVALUE(ID)%%>', urlencode(''), $templateCode);
@@ -742,6 +748,10 @@ function Catalog_form($selected_id = '', $AllowUpdate = 1, $AllowInsert = 1, $Al
 		$templateCode = str_replace('<%%URLVALUE(bid11)%%>', urlencode(''), $templateCode);
 		$templateCode = str_replace('<%%VALUE(bid12)%%>', '', $templateCode);
 		$templateCode = str_replace('<%%URLVALUE(bid12)%%>', urlencode(''), $templateCode);
+		$templateCode = str_replace('<%%VALUE(Values)%%>', '', $templateCode);
+		$templateCode = str_replace('<%%URLVALUE(Values)%%>', urlencode(''), $templateCode);
+		$templateCode = str_replace('<%%VALUE(ValueTxt)%%>', '', $templateCode);
+		$templateCode = str_replace('<%%URLVALUE(ValueTxt)%%>', urlencode(''), $templateCode);
 	}
 
 	// process translations

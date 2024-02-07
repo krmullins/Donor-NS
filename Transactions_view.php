@@ -24,6 +24,7 @@
 		"`Transactions`.`Price`" => "Price",
 		"`Transactions`.`Quantity`" => "Quantity",
 		"`Transactions`.`Total`" => "Total",
+		"IF(    CHAR_LENGTH(`Catalog1`.`Values`), CONCAT_WS('',   `Catalog1`.`Values`), '') /* Catalog Value */" => "CatValue",
 	];
 	// mapping incoming sort by requests to actual query fields
 	$x->SortFields = [
@@ -33,6 +34,7 @@
 		4 => '`Transactions`.`Price`',
 		5 => '`Transactions`.`Quantity`',
 		6 => '`Transactions`.`Total`',
+		7 => '`Catalog1`.`Values`',
 	];
 
 	// Fields that can be displayed in the csv file
@@ -43,6 +45,7 @@
 		"`Transactions`.`Price`" => "Price",
 		"`Transactions`.`Quantity`" => "Quantity",
 		"`Transactions`.`Total`" => "Total",
+		"IF(    CHAR_LENGTH(`Catalog1`.`Values`), CONCAT_WS('',   `Catalog1`.`Values`), '') /* Catalog Value */" => "CatValue",
 	];
 	// Fields that can be filtered
 	$x->QueryFieldsFilters = [
@@ -52,6 +55,7 @@
 		"`Transactions`.`Price`" => "Price",
 		"`Transactions`.`Quantity`" => "Quantity",
 		"`Transactions`.`Total`" => "Total",
+		"IF(    CHAR_LENGTH(`Catalog1`.`Values`), CONCAT_WS('',   `Catalog1`.`Values`), '') /* Catalog Value */" => "Catalog Value",
 	];
 
 	// Fields that can be quick searched
@@ -62,6 +66,7 @@
 		"`Transactions`.`Price`" => "Price",
 		"`Transactions`.`Quantity`" => "Quantity",
 		"`Transactions`.`Total`" => "Total",
+		"IF(    CHAR_LENGTH(`Catalog1`.`Values`), CONCAT_WS('',   `Catalog1`.`Values`), '') /* Catalog Value */" => "CatValue",
 	];
 
 	// Lookup fields that can be used as filterers
@@ -94,10 +99,10 @@
 	$x->TableIcon = 'resources/table_icons/32Px - 397.png';
 	$x->PrimaryKey = '`Transactions`.`ID`';
 
-	$x->ColWidth = [150, 150, 80, 150, 150, ];
-	$x->ColCaption = ['Catalog #', 'Bidder', 'Price', 'Quantity', 'Total', ];
-	$x->ColFieldName = ['CatalogID', 'BidderID', 'Price', 'Quantity', 'Total', ];
-	$x->ColNumber  = [2, 3, 4, 5, 6, ];
+	$x->ColWidth = [150, 150, 80, 150, 150, 150, ];
+	$x->ColCaption = ['Catalog #', 'Bidder', 'Price', 'Quantity', 'Total', 'Catalog Value', ];
+	$x->ColFieldName = ['CatalogID', 'BidderID', 'Price', 'Quantity', 'Total', 'CatValue', ];
+	$x->ColNumber  = [2, 3, 4, 5, 6, 7, ];
 
 	// template paths below are based on the app main directory
 	$x->Template = 'templates/Transactions_templateTV.html';

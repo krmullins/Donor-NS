@@ -1,4 +1,4 @@
-<?php
+t<?php
 
     $hooks_dir = dirname(__FILE__);
 
@@ -21,6 +21,18 @@
     if(!($bidder = db_fetch_array($res)))  exit(error_message('Bidder not found!', false));
 
     //var_dump($bidder);
+
+    /* Retreive transactions */
+    $items = array();
+    $transaction_total = 0;
+    $transaction_fields = get_sql_fields('Transactions');
+    $transaction_from = get_sql_from('Transactions');
+    $res = sql("Select {$transaction_fields} from {$transaction_from} and BidderID={$bidder_id}", $eo);
+    while($row = db_fetch_assoc($res)){
+        $items[] = $row;
+        $order_total += $row['Total'];
+    }
+    //var_dump($items);
 
     $address1 = $bidder['Address1'];
 
@@ -118,12 +130,61 @@
                     } else {echo $bidder['City']; ?>, <?php echo $bidder['State']; ?> <?php echo $bidder['Zip'];} ?></h5>
 
                 </div>
-
+                <div class="col-xs-5 text-left">
+                    <H4>Bidder: <?php echo $bidder['BidNo']; ?></H4>
+                </div> 
             </div>
         </div>
 
+</div>
+</div>
+<hr>
+<!-- transaction lines -->
+<table class="table table-striped table-bordered">
+    <thead>
+        <th class=text-center>#</th>
+        <th class=text>Catalog Name</th>
+        <th class=text>Price</th>
+        <th class=text>Quantity</th>
+        <th class=text>Value</th>
+        <th class=text>Total</th>
+    </thead>
+
+    <tbody>
+        <?php foreach($items as $i => $item){ ?>
+            <tr>
+                <td class="text-center"><?php echo ($i + 1); ?></td>
+                <td class="text"><?php echo $item['CatalogID']; ?></td>
+                <td class="text-right">$<?php echo $item['Price']; ?></td>
+                <td class="text-right"><?php echo $item['Quantity']; ?></td>
+                <td class="text-right">$<?php echo $item['CatValue']; ?></td>
+                <td class="text-right">$<?php echo $item['Total']; ?></td>
+            </tr>
+        <?php } ?>
+    </tbody>
+
+    <tfoot>
+        <tr>
+            <th colspan="5" class="text-right">Total</th>
+            <th class="text-right">$<?php echo number_format($order_total,2); ?></th>
+        </tr>
+    </tfoot>
+</table>
 
 
+<hr>
+<div class="container">
+    <div class="panel panel-body">
+        <div class="row">
+            <div class="text-center">
+            <p>For tax purposes, the value(s) of the item(s) you purchased tonight are included on this receipt.  Dinner ticket prices are included in the invoice. The actual cost of the dinner was $43.00.</p>
+            </div>        
+        </div>
+        <div class="row">
+            <div class="text-center">
+            <p>This is the official receipt for tax purposes. Please retain for your tax records.</p>
+            </div>
+        </div>
     </div>
 </div>
 
