@@ -376,9 +376,9 @@ function Bidders_form($selected_id = '', $AllowUpdate = 1, $AllowInsert = 1, $Al
 		$filterOperator = Request::val('FilterOperator');
 		$filterValue = Request::val('FilterValue');
 		$combo_ContactID->SelectedData = $filterer_ContactID;
-		$combo_BidderType->SelectedText = (isset($filterField[1]) && $filterField[1] == '4' && $filterOperator[1] == '<=>' ? $filterValue[1] : 'Bidder');
-		$combo_CheckedIn->SelectedText = (isset($filterField[1]) && $filterField[1] == '5' && $filterOperator[1] == '<=>' ? $filterValue[1] : '');
-		$combo_QuickPay->SelectedText = (isset($filterField[1]) && $filterField[1] == '6' && $filterOperator[1] == '<=>' ? $filterValue[1] : '');
+		$combo_BidderType->SelectedText = (isset($filterField[1]) && $filterField[1] == '4' && $filterOperator[1] == '<=>' ? $filterValue[1] : entitiesToUTF8('Bidder'));
+		$combo_CheckedIn->SelectedText = (isset($filterField[1]) && $filterField[1] == '5' && $filterOperator[1] == '<=>' ? $filterValue[1] : entitiesToUTF8(''));
+		$combo_QuickPay->SelectedText = (isset($filterField[1]) && $filterField[1] == '6' && $filterOperator[1] == '<=>' ? $filterValue[1] : entitiesToUTF8(''));
 	}
 	$combo_ContactID->HTML = '<span id="ContactID-container' . $rnd1 . '"></span><input type="hidden" name="ContactID" id="ContactID' . $rnd1 . '" value="' . html_attr($combo_ContactID->SelectedData) . '">';
 	$combo_ContactID->MatchText = '<span id="ContactID-container-readonly' . $rnd1 . '"></span><input type="hidden" name="ContactID" id="ContactID' . $rnd1 . '" value="' . html_attr($combo_ContactID->SelectedData) . '">';

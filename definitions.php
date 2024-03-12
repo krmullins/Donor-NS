@@ -3,7 +3,7 @@
 	@define('SESSION_NAME', 'DonorSoft');
 	@define('APP_TITLE', 'DonorSoft');
 	@define('APP_DIR', __DIR__);
-	@define('APP_VERSION', '24.10');
+	@define('APP_VERSION', '24.11');
 	@define('maxSortBy', 4);
 	@define('empty_lookup_value', '{empty_value}');
 	@define('MULTIPLE_SUPER_ADMINS', true);

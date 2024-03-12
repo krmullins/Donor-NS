@@ -209,6 +209,24 @@ Tables_delete1Tip=["",spacer+"This option allows each member of the group to del
 Tables_delete2Tip=["",spacer+"This option allows each member of the group to delete any record owned by any member of the group in the 'Tables' table."];
 Tables_delete3Tip=["",spacer+"This option allows each member of the group to delete any records in the 'Tables' table."];
 
+// OnlineReg table
+OnlineReg_addTip=["",spacer+"This option allows all members of the group to add records to the 'Online Registration' table. A member who adds a record to the table becomes the 'owner' of that record."];
+
+OnlineReg_view0Tip=["",spacer+"This option prohibits all members of the group from viewing any record in the 'Online Registration' table."];
+OnlineReg_view1Tip=["",spacer+"This option allows each member of the group to view only his own records in the 'Online Registration' table."];
+OnlineReg_view2Tip=["",spacer+"This option allows each member of the group to view any record owned by any member of the group in the 'Online Registration' table."];
+OnlineReg_view3Tip=["",spacer+"This option allows each member of the group to view all records in the 'Online Registration' table."];
+
+OnlineReg_edit0Tip=["",spacer+"This option prohibits all members of the group from modifying any record in the 'Online Registration' table."];
+OnlineReg_edit1Tip=["",spacer+"This option allows each member of the group to edit only his own records in the 'Online Registration' table."];
+OnlineReg_edit2Tip=["",spacer+"This option allows each member of the group to edit any record owned by any member of the group in the 'Online Registration' table."];
+OnlineReg_edit3Tip=["",spacer+"This option allows each member of the group to edit any records in the 'Online Registration' table, regardless of their owner."];
+
+OnlineReg_delete0Tip=["",spacer+"This option prohibits all members of the group from deleting any record in the 'Online Registration' table."];
+OnlineReg_delete1Tip=["",spacer+"This option allows each member of the group to delete only his own records in the 'Online Registration' table."];
+OnlineReg_delete2Tip=["",spacer+"This option allows each member of the group to delete any record owned by any member of the group in the 'Online Registration' table."];
+OnlineReg_delete3Tip=["",spacer+"This option allows each member of the group to delete any records in the 'Online Registration' table."];
+
 /*
 	Style syntax:
 	-------------

@@ -255,7 +255,7 @@ function Tickets_form($selected_id = '', $AllowUpdate = 1, $AllowInsert = 1, $Al
 		$filterValue = Request::val('FilterValue');
 		$combo_BidderID->SelectedData = $filterer_BidderID;
 		$combo_TableID->SelectedData = $filterer_TableID;
-		$combo_SeatingPosition->SelectedText = (isset($filterField[1]) && $filterField[1] == '7' && $filterOperator[1] == '<=>' ? $filterValue[1] : '');
+		$combo_SeatingPosition->SelectedText = (isset($filterField[1]) && $filterField[1] == '7' && $filterOperator[1] == '<=>' ? $filterValue[1] : entitiesToUTF8(''));
 	}
 	$combo_BidderID->HTML = '<span id="BidderID-container' . $rnd1 . '"></span><input type="hidden" name="BidderID" id="BidderID' . $rnd1 . '" value="' . html_attr($combo_BidderID->SelectedData) . '">';
 	$combo_BidderID->MatchText = '<span id="BidderID-container-readonly' . $rnd1 . '"></span><input type="hidden" name="BidderID" id="BidderID' . $rnd1 . '" value="' . html_attr($combo_BidderID->SelectedData) . '">';

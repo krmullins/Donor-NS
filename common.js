@@ -1,6 +1,6 @@
 var AppGini = AppGini || {};
 
-AppGini.version = 24.10;
+AppGini.version = 24.11;
 
 /* initials and fixes */
 jQuery(function() {
@@ -313,6 +313,22 @@ jQuery(function() {
 
 	// if upload toolbox is empty, hide it
 	$j('.upload-toolbox').toggleClass('hidden', !$j('.upload-toolbox').children().not('.hidden').length)
+
+	// on clicking .sql-query-copier or .sql-query-container, copy the query to clipboard
+	// and set .sql-query-copier to 'copied' for 1 second
+	$j(document).on('click', '.sql-query-copier', function() {
+		const query = $j(this).siblings('.sql-query-container').text().trim();
+		if(!query) return;
+
+		AppGini.copyToClipboard(query);
+
+		$j(this).text(AppGini.Translate._map['copied']);
+		setTimeout(() => $j(this).text(AppGini.Translate._map['click to copy']), 1000);
+	})
+	$j(document).on('click', '.sql-query-container', function() {
+		$j(this).siblings('.sql-query-copier').click();
+	})
+
 });
 
 /* show/hide TV action buttons based on whether records are selected or not */
@@ -477,6 +493,12 @@ function Tickets_validateData() {
 	return !errors;
 }
 function Tables_validateData() {
+	$j('.has-error').removeClass('has-error');
+	var errors = false;
+
+	return !errors;
+}
+function OnlineReg_validateData() {
 	$j('.has-error').removeClass('has-error');
 	var errors = false;
 
@@ -1877,6 +1899,11 @@ AppGini.sortSelect2ByRelevence = function(res, cont, qry) {
 			if(aStart && !bStart) return false;
 			if(!aStart && bStart) return true;
 		}
+
+		// if trimmed item is empty, always return it first
+		if(a.text.trim() == '') return false;
+		if(b.text.trim() == '') return true;
+
 		return a.text > b.text;
 	});
 }
@@ -2528,4 +2555,24 @@ AppGini.updateChildrenCount = (scheduleNextCall = true) => {
 		if(scheduleNextCall)
 			setTimeout(AppGini.updateChildrenCount, elapsed > 2000 ? 60000 : 10000);
 	});
+}
+
+AppGini.copyToClipboard = (text) => {
+	if(navigator.clipboard) {
+	   navigator.clipboard.writeText(text);
+	   return;
+	}
+
+	const textArea = document.createElement('textarea');
+	textArea.value = text;
+	document.body.appendChild(textArea);
+	textArea.select();
+	document.execCommand('copy');
+	document.body.removeChild(textArea);
+}
+
+AppGini.htmlEntitiesToText = (html) => {
+	const txt = document.createElement('textarea');
+	txt.innerHTML = html;
+	return txt.value;
 }

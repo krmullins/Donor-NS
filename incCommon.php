@@ -117,6 +117,7 @@
 			'CatalogGroups' => "`CatalogGroups`.`ID` as 'ID', `CatalogGroups`.`GroupName` as 'GroupName'",
 			'Tickets' => "`Tickets`.`ID` as 'ID', `Tickets`.`UsersName` as 'UsersName', IF(    CHAR_LENGTH(`Bidders1`.`BidNo`), CONCAT_WS('',   `Bidders1`.`BidNo`), '') as 'BidderID', IF(    CHAR_LENGTH(`Bidders1`.`TablePreference`), CONCAT_WS('',   `Bidders1`.`TablePreference`), '') as 'TablePreference', IF(    CHAR_LENGTH(`Tables1`.`TableNo`) || CHAR_LENGTH(`Tables1`.`TableName`), CONCAT_WS('',   `Tables1`.`TableNo`, ' - ', `Tables1`.`TableName`), '') as 'TableID', IF(    CHAR_LENGTH(`Tables1`.`TableName`), CONCAT_WS('',   `Tables1`.`TableName`), '') as 'TableName', `Tickets`.`SeatingPosition` as 'SeatingPosition'",
 			'Tables' => "`Tables`.`ID` as 'ID', `Tables`.`TableNo` as 'TableNo', `Tables`.`TableName` as 'TableName'",
+			'OnlineReg' => "`OnlineReg`.`Name` as 'Name', `OnlineReg`.`eMail` as 'eMail', `OnlineReg`.`Phone` as 'Phone', `OnlineReg`.`Address1` as 'Address1', `OnlineReg`.`Address2` as 'Address2', `OnlineReg`.`City` as 'City', `OnlineReg`.`State` as 'State', `OnlineReg`.`Zip` as 'Zip', `OnlineReg`.`Contry` as 'Contry', `OnlineReg`.`PurchaseType` as 'PurchaseType', `OnlineReg`.`IndividualDetails` as 'IndividualDetails', `OnlineReg`.`TableDetails` as 'TableDetails', `OnlineReg`.`Guest1` as 'Guest1', `OnlineReg`.`Guest1Meal` as 'Guest1Meal', `OnlineReg`.`Guest2` as 'Guest2', `OnlineReg`.`Guest2Meal` as 'Guest2Meal', `OnlineReg`.`Guest3` as 'Guest3', `OnlineReg`.`Guest3Meal` as 'Guest3Meal', `OnlineReg`.`id` as 'id'",
 		];
 
 		if(isset($sql_fields[$table_name])) return $sql_fields[$table_name];
@@ -139,6 +140,7 @@
 			'CatalogGroups' => "`CatalogGroups` ",
 			'Tickets' => "`Tickets` LEFT JOIN `Bidders` as Bidders1 ON `Bidders1`.`ID`=`Tickets`.`BidderID` LEFT JOIN `Tables` as Tables1 ON `Tables1`.`ID`=`Tickets`.`TableID` ",
 			'Tables' => "`Tables` ",
+			'OnlineReg' => "`OnlineReg` ",
 		];
 
 		$pkey = [
@@ -153,6 +155,7 @@
 			'CatalogGroups' => 'ID',
 			'Tickets' => 'ID',
 			'Tables' => 'ID',
+			'OnlineReg' => 'id',
 		];
 
 		if(!isset($sql_from[$table_name])) return false;
@@ -333,6 +336,27 @@
 				'ID' => '',
 				'TableNo' => '',
 				'TableName' => '',
+			],
+			'OnlineReg' => [
+				'Name' => '',
+				'eMail' => '',
+				'Phone' => '',
+				'Address1' => '',
+				'Address2' => '',
+				'City' => '',
+				'State' => '',
+				'Zip' => '',
+				'Contry' => 'US',
+				'PurchaseType' => '',
+				'IndividualDetails' => '',
+				'TableDetails' => '',
+				'Guest1' => '',
+				'Guest1Meal' => '',
+				'Guest2' => '',
+				'Guest2Meal' => '',
+				'Guest3' => '',
+				'Guest3Meal' => '',
+				'id' => '',
 			],
 		];
 
@@ -1327,6 +1351,8 @@ EOT;
 				],
 			],
 			'Tables' => [
+			],
+			'OnlineReg' => [
 			],
 		];
 

@@ -73,6 +73,10 @@
 
 			return $data;
 		},
+		'OnlineReg' => function($data, $options = []) {
+
+			return $data;
+		},
 	];
 
 	// accept a record as an assoc array, return a boolean indicating whether to import or skip record
@@ -88,6 +92,7 @@
 		'CatalogGroups' => function($data, $options = []) { return true; },
 		'Tickets' => function($data, $options = []) { return true; },
 		'Tables' => function($data, $options = []) { return true; },
+		'OnlineReg' => function($data, $options = []) { return true; },
 	];
 
 	/*

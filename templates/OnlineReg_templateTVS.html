@@ -1,0 +1,25 @@
+<!-- Edit this file to change the layout of each record in the table view -->
+<!-- To disable clicking of a field, remove the <%%SELECT%%> and <%%ENDSELECT%%> formatters around it-->
+
+<!-- If you wish to hide the table view header that contains the column titles, -->
+<!-- add the following to the OnlineReg_init() hook (in hooks/OnlineReg.php file) -->
+<!--     $options->ShowTableHeader = 0;     -->
+
+		<td id="OnlineReg-Name-<%%VALUE(id)%%>" class="OnlineReg-Name text-bold"><%%VALUE(Name)%%></td>
+		<td id="OnlineReg-eMail-<%%VALUE(id)%%>" class="OnlineReg-eMail text-bold"><a href="mailto:<%%VALUE(eMail)%%>" title="<%%VALUE(eMail)%%>" class="btn btn-default"><i class="glyphicon glyphicon-envelope text-info"></i></a></td>
+		<td id="OnlineReg-Phone-<%%VALUE(id)%%>" class="OnlineReg-Phone text-bold"><%%VALUE(Phone)%%></td>
+		<td id="OnlineReg-Address1-<%%VALUE(id)%%>" class="OnlineReg-Address1 text-bold"><%%VALUE(Address1)%%></td>
+		<td id="OnlineReg-Address2-<%%VALUE(id)%%>" class="OnlineReg-Address2 text-bold"><%%VALUE(Address2)%%></td>
+		<td id="OnlineReg-City-<%%VALUE(id)%%>" class="OnlineReg-City text-bold"><%%VALUE(City)%%></td>
+		<td id="OnlineReg-State-<%%VALUE(id)%%>" class="OnlineReg-State text-bold"><%%VALUE(State)%%></td>
+		<td id="OnlineReg-Zip-<%%VALUE(id)%%>" class="OnlineReg-Zip text-bold"><%%VALUE(Zip)%%></td>
+		<td id="OnlineReg-Contry-<%%VALUE(id)%%>" class="OnlineReg-Contry text-bold"><%%VALUE(Contry)%%></td>
+		<td id="OnlineReg-PurchaseType-<%%VALUE(id)%%>" class="OnlineReg-PurchaseType text-bold"><%%VALUE(PurchaseType)%%></td>
+		<td id="OnlineReg-IndividualDetails-<%%VALUE(id)%%>" class="OnlineReg-IndividualDetails text-bold"><%%VALUE(IndividualDetails)%%></td>
+		<td id="OnlineReg-TableDetails-<%%VALUE(id)%%>" class="OnlineReg-TableDetails text-bold"><%%VALUE(TableDetails)%%></td>
+		<td id="OnlineReg-Guest1-<%%VALUE(id)%%>" class="OnlineReg-Guest1 text-bold"><%%VALUE(Guest1)%%></td>
+		<td id="OnlineReg-Guest1Meal-<%%VALUE(id)%%>" class="OnlineReg-Guest1Meal text-bold"><%%VALUE(Guest1Meal)%%></td>
+		<td id="OnlineReg-Guest2-<%%VALUE(id)%%>" class="OnlineReg-Guest2 text-bold"><%%VALUE(Guest2)%%></td>
+		<td id="OnlineReg-Guest2Meal-<%%VALUE(id)%%>" class="OnlineReg-Guest2Meal text-bold"><%%VALUE(Guest2Meal)%%></td>
+		<td id="OnlineReg-Guest3-<%%VALUE(id)%%>" class="OnlineReg-Guest3 text-bold"><%%VALUE(Guest3)%%></td>
+		<td id="OnlineReg-Guest3Meal-<%%VALUE(id)%%>" class="OnlineReg-Guest3Meal text-bold"><%%VALUE(Guest3Meal)%%></td>

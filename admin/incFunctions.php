@@ -183,6 +183,13 @@
 					'group' => $tg[2],
 					'homepageShowCount' => 1
 				],
+				'OnlineReg' => [
+					'Caption' => 'Online Registration',
+					'Description' => '',
+					'tableIcon' => 'table.gif',
+					'group' => $tg[0],
+					'homepageShowCount' => 0
+				],
 		];
 
 		if($skip_authentication || getLoggedAdmin()) return $all_tables;
@@ -210,6 +217,7 @@
 			'CatalogGroups' => ['Catalog Groups', 'A list of Catalog Types', 'resources/table_icons/32Px - 352.png', 'Settings'],
 			'Tickets' => ['Tickets', 'Use this section to record who is using the tickets and what meals they have selected.', 'resources/table_icons/32Px - 394.png', 'Registration'],
 			'Tables' => ['Tables', 'Use this area to build and assign tables for the event.', 'resources/table_icons/32Px - 112.png', 'Registration'],
+			'OnlineReg' => ['Online Registration', '', 'table.gif', 'Event'],
 		];
 		if($skip_authentication || getLoggedAdmin()) return $arrTables;
 
@@ -1812,6 +1820,141 @@
 						],
 					],
 				],
+				'OnlineReg' => [
+					'Name' => [
+						'appgini' => "VARCHAR(50) NULL",
+						'info' => [
+							'caption' => 'Name',
+							'description' => 'Name of Online Registration',
+						],
+					],
+					'eMail' => [
+						'appgini' => "VARCHAR(80) NULL",
+						'info' => [
+							'caption' => 'EMail',
+							'description' => '',
+						],
+					],
+					'Phone' => [
+						'appgini' => "VARCHAR(50) NULL",
+						'info' => [
+							'caption' => 'Phone',
+							'description' => '',
+						],
+					],
+					'Address1' => [
+						'appgini' => "VARCHAR(50) NULL",
+						'info' => [
+							'caption' => 'Address1',
+							'description' => '',
+						],
+					],
+					'Address2' => [
+						'appgini' => "VARCHAR(50) NULL",
+						'info' => [
+							'caption' => 'Address2',
+							'description' => '',
+						],
+					],
+					'City' => [
+						'appgini' => "VARCHAR(50) NULL",
+						'info' => [
+							'caption' => 'City',
+							'description' => '',
+						],
+					],
+					'State' => [
+						'appgini' => "VARCHAR(50) NULL",
+						'info' => [
+							'caption' => 'State',
+							'description' => '',
+						],
+					],
+					'Zip' => [
+						'appgini' => "VARCHAR(50) NULL",
+						'info' => [
+							'caption' => 'Zip',
+							'description' => '',
+						],
+					],
+					'Contry' => [
+						'appgini' => "VARCHAR(50) NULL DEFAULT 'US'",
+						'info' => [
+							'caption' => 'Contry',
+							'description' => '',
+						],
+					],
+					'PurchaseType' => [
+						'appgini' => "VARCHAR(50) NULL",
+						'info' => [
+							'caption' => 'Purchase Type',
+							'description' => '',
+						],
+					],
+					'IndividualDetails' => [
+						'appgini' => "VARCHAR(50) NULL",
+						'info' => [
+							'caption' => 'Individual Details',
+							'description' => '',
+						],
+					],
+					'TableDetails' => [
+						'appgini' => "VARCHAR(50) NULL",
+						'info' => [
+							'caption' => 'TableDetails',
+							'description' => 'Select the Number of tables you would like to purchase',
+						],
+					],
+					'Guest1' => [
+						'appgini' => "VARCHAR(50) NULL",
+						'info' => [
+							'caption' => 'Guest 1',
+							'description' => 'Guest 1 Name (Your name if using the first ticket)',
+						],
+					],
+					'Guest1Meal' => [
+						'appgini' => "VARCHAR(50) NULL",
+						'info' => [
+							'caption' => 'Guest1 Meal',
+							'description' => '',
+						],
+					],
+					'Guest2' => [
+						'appgini' => "VARCHAR(50) NULL",
+						'info' => [
+							'caption' => 'Guest 2',
+							'description' => 'Guest 2 Name',
+						],
+					],
+					'Guest2Meal' => [
+						'appgini' => "VARCHAR(50) NULL",
+						'info' => [
+							'caption' => 'Guest 2 Meal',
+							'description' => '',
+						],
+					],
+					'Guest3' => [
+						'appgini' => "VARCHAR(50) NULL",
+						'info' => [
+							'caption' => 'Guest 3',
+							'description' => 'Guest 3 Name ',
+						],
+					],
+					'Guest3Meal' => [
+						'appgini' => "VARCHAR(50) NULL",
+						'info' => [
+							'caption' => 'Guest1 Meal',
+							'description' => '',
+						],
+					],
+					'id' => [
+						'appgini' => "INT UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT",
+						'info' => [
+							'caption' => 'ID',
+							'description' => '',
+						],
+					],
+				],
 			];
 		}
 
@@ -3062,6 +3205,7 @@
 			'CatalogGroups' => [],
 			'Tickets' => [],
 			'Tables' => [],
+			'OnlineReg' => [],
 		];
 	}
 	#########################################################
@@ -3232,6 +3376,8 @@
 				'TableName' => 'SELECT `Tables`.`ID`, `Tables`.`TableName` FROM `Tables` ORDER BY 2',
 			],
 			'Tables' => [
+			],
+			'OnlineReg' => [
 			],
 		];
 

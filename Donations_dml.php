@@ -312,7 +312,7 @@ function Donations_form($selected_id = '', $AllowUpdate = 1, $AllowInsert = 1, $
 		$filterValue = Request::val('FilterValue');
 		$combo_CatalogID->SelectedData = $filterer_CatalogID;
 		$combo_ContactID->SelectedData = $filterer_ContactID;
-		$combo_Thanks->SelectedText = (isset($filterField[1]) && $filterField[1] == '14' && $filterOperator[1] == '<=>' ? $filterValue[1] : '');
+		$combo_Thanks->SelectedText = (isset($filterField[1]) && $filterField[1] == '14' && $filterOperator[1] == '<=>' ? $filterValue[1] : entitiesToUTF8(''));
 	}
 	$combo_CatalogID->HTML = '<span id="CatalogID-container' . $rnd1 . '"></span><input type="hidden" name="CatalogID" id="CatalogID' . $rnd1 . '" value="' . html_attr($combo_CatalogID->SelectedData) . '">';
 	$combo_CatalogID->MatchText = '<span id="CatalogID-container-readonly' . $rnd1 . '"></span><input type="hidden" name="CatalogID" id="CatalogID' . $rnd1 . '" value="' . html_attr($combo_CatalogID->SelectedData) . '">';

@@ -331,8 +331,8 @@ function Contacts_form($selected_id = '', $AllowUpdate = 1, $AllowInsert = 1, $A
 		$filterField = Request::val('FilterField');
 		$filterOperator = Request::val('FilterOperator');
 		$filterValue = Request::val('FilterValue');
-		$combo_State->SelectedText = (isset($filterField[1]) && $filterField[1] == '9' && $filterOperator[1] == '<=>' ? $filterValue[1] : '');
-		$combo_Status->SelectedText = (isset($filterField[1]) && $filterField[1] == '14' && $filterOperator[1] == '<=>' ? $filterValue[1] : 'Active');
+		$combo_State->SelectedText = (isset($filterField[1]) && $filterField[1] == '9' && $filterOperator[1] == '<=>' ? $filterValue[1] : entitiesToUTF8(''));
+		$combo_Status->SelectedText = (isset($filterField[1]) && $filterField[1] == '14' && $filterOperator[1] == '<=>' ? $filterValue[1] : entitiesToUTF8('Active'));
 	}
 	$combo_State->Render();
 	$combo_Status->Render();

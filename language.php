@@ -897,4 +897,9 @@ $Translation = [
 	'Examples: ' => 'Examples: ',
 	'Example: ' => 'Example: ',
 	'ldap admin user warning' => 'Before enabling LDAP login, make sure the admin username %s exists in the LDAP server. Otherwise, you will not be able to sign in as admin.',
+
+	// Added in 24.11
+	'SQL' => 'SQL',
+	'click to copy' => 'Click to copy',
+	'copied' => 'Copied!',
 ];

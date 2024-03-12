@@ -1,0 +1,162 @@
+<!-- Edit this file to change the layout of the detail view print preview page -->
+
+
+<div class="panel-heading"><h3 class="panel-title">
+	<strong><%%DETAIL_VIEW_TITLE%%></strong>
+	<div class="hidden-print pull-right">
+		<div class="btn-group">
+			<button type="button" id="print" onclick="window.print();" title="<%%TRANSLATION(Print)%%>" class="btn btn-primary"><i class="glyphicon glyphicon-print"></i> <%%TRANSLATION(Print)%%></button>
+			<button type="submit" id="back" title="<%%TRANSLATION(Cancel Printing)%%>" class="btn btn-default"><i class="glyphicon glyphicon-remove-circle"></i> <%%TRANSLATION(Cancel Printing)%%></button>
+		</div>
+	</div>
+	<div class="clearfix"></div>
+</h3></div>
+
+<div class="panel-body">
+	<fieldset class="form-horizontal">
+		<!-- Field: Name -->
+		<div class="form-group OnlineReg-Name" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Name</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(Name)%%></div>
+			</div>
+		</div>
+		<!-- Field: EMail -->
+		<div class="form-group OnlineReg-eMail" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">EMail</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(eMail)%%></div>
+			</div>
+		</div>
+		<!-- Field: Phone -->
+		<div class="form-group OnlineReg-Phone" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Phone</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(Phone)%%></div>
+			</div>
+		</div>
+		<!-- Field: Address1 -->
+		<div class="form-group OnlineReg-Address1" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Address1</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(Address1)%%></div>
+			</div>
+		</div>
+		<!-- Field: Address2 -->
+		<div class="form-group OnlineReg-Address2" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Address2</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(Address2)%%></div>
+			</div>
+		</div>
+		<!-- Field: City -->
+		<div class="form-group OnlineReg-City" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">City</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(City)%%></div>
+			</div>
+		</div>
+		<!-- Field: State -->
+		<div class="form-group OnlineReg-State" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">State</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(State)%%></div>
+			</div>
+		</div>
+		<!-- Field: Zip -->
+		<div class="form-group OnlineReg-Zip" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Zip</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(Zip)%%></div>
+			</div>
+		</div>
+		<!-- Field: Contry -->
+		<div class="form-group OnlineReg-Contry" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Contry</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(Contry)%%></div>
+			</div>
+		</div>
+		<!-- Field: Purchase Type -->
+		<div class="form-group OnlineReg-PurchaseType" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Purchase Type</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%COMBOTEXT(PurchaseType)%%></div>
+			</div>
+		</div>
+		<!-- Field: Individual Details -->
+		<div class="form-group OnlineReg-IndividualDetails" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Individual Details</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%COMBOTEXT(IndividualDetails)%%></div>
+			</div>
+		</div>
+		<!-- Field: TableDetails -->
+		<div class="form-group OnlineReg-TableDetails" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">TableDetails</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%COMBOTEXT(TableDetails)%%></div>
+			</div>
+		</div>
+		<!-- Field: Guest 1 -->
+		<div class="form-group OnlineReg-Guest1" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Guest 1</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(Guest1)%%></div>
+			</div>
+		</div>
+		<!-- Field: Guest1 Meal -->
+		<div class="form-group OnlineReg-Guest1Meal" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Guest1 Meal</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%COMBOTEXT(Guest1Meal)%%></div>
+			</div>
+		</div>
+		<!-- Field: Guest 2 -->
+		<div class="form-group OnlineReg-Guest2" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Guest 2</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(Guest2)%%></div>
+			</div>
+		</div>
+		<!-- Field: Guest 2 Meal -->
+		<div class="form-group OnlineReg-Guest2Meal" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Guest 2 Meal</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%COMBOTEXT(Guest2Meal)%%></div>
+			</div>
+		</div>
+		<!-- Field: Guest 3 -->
+		<div class="form-group OnlineReg-Guest3" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Guest 3</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(Guest3)%%></div>
+			</div>
+		</div>
+		<!-- Field: Guest1 Meal -->
+		<div class="form-group OnlineReg-Guest3Meal" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Guest1 Meal</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%COMBOTEXT(Guest3Meal)%%></div>
+			</div>
+		</div>
+		<!-- Field: ID -->
+		<div class="form-group OnlineReg-id" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">ID</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(id)%%></div>
+			</div>
+		</div>
+	</fieldset>
+</div>
+<script>
+	$j(function() {
+		// render read-only checkboxes in DVP
+		$j('form input[type=checkbox]:not(.hidden):checked')
+			.addClass('hidden')
+			.after('<i class="glyphicon glyphicon-check"></i>');
+		$j('form input[type=checkbox]:not(.hidden):not(:checked)')
+			.addClass('hidden')
+			.after('<i class="glyphicon glyphicon-unchecked"></i>')
+	})
+</script>
