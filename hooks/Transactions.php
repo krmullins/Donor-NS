@@ -76,7 +76,10 @@
 	}
 
 	function Transactions_after_insert($data, $memberInfo, &$args) {
-
+	// This was added from my consulting session on how to update a record
+		$transactionQuantity=$data['Quantity'];
+		$eo = ['silentErrors' => true];
+		sql("update Catalog set Quantity=Quantity - $transactionQuantity WHERE ID='{$data['CatalogID']}'",$eo);
 		return TRUE;
 	}
 
